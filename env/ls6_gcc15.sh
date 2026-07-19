@@ -26,6 +26,7 @@ module load ${compiler}/${compilerversion}
 # export TACC_CC=gcc
 # export TACC_CXX=g++
 # export TACC_FC=gfortran
+echo "There is no mpi for gcc15, wait for gcc16!" && exit 1
 module load impi
 module load mkl
 
