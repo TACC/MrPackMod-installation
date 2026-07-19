@@ -1,19 +1,8 @@
-################################################################
-####
-#### Configuration for WarpX
-####
-################################################################
+HAS_MPI==ON  MODULES += phdf5/1.14
+HAS_MPI==OFF MODULES += hdf5/1.14
 
-PACKAGE = warpx
-PACKAGEVERSION = 26.06
-ABOUT = WarpX is an advanced Particle-In-Cell code
-URL = https://github.com/BLAST-WarpX/warpx
-DOCURL = https://warpx.readthedocs.io/en/latest/index.html
-DOWNLOADURL = https://github.com/BLAST-WarpX/warpx/archive/refs/tags/${PACKAGEVERSION}.tar.gz
-GITREPO= https://github.com/ECP-WarpX/WarpX.git
-MODE = mpi
-
-MODULES = phdf5/1.14
+HAS_MPI==ON  AMREXSEQ = OFF
+HAS_MPI==OFF AMREXSEQ = ON
 
 # FFT
 # fftw3 is missing the fortran mode when compiled with gcc,
@@ -22,15 +11,23 @@ HAS_FFT = ON
 COMPILER==gcc HAS_FFT=OFF
 HAS_FFT==ON MODULE += fftw3
 
+HAS_PYTHON = ON
+SYSTEM==vista HAS_PYTHON = OFF
 SYSTEM!=vista MODULES += python/3.12
-
-BUILDSYSTEM = cmake
 
 MODULES += cuda
 #/12.8
 MODULEVERSIONEXTRA = cuda
 # to distinguish from omp:
 INSTALLVARIANT = cuda
+
+CUDAARCH = 7.0
+SYSTEM==vista     CUDAARCH = 9.0
+# except B200: 10.0
+SYSTEM==horizon   CUDAARCH = 10.0
+SYSTEM==ls6       CUDAARCH = 8.0
+# except H100: 9.0
+SYSTEM==stampede3 CUDAARCH = 12.0
 
 # hdf5 gets found through cmake prefix path, no options needed
 # mpi mode is also detected automatically
@@ -41,10 +38,12 @@ export CUDAFLAGS="--host-linker-script=use-lcs"
 # no-relax issue:
 # https://github.com/BLAST-WarpX/warpx/issues/7039
 CMAKEFLAGS = \
+  -D WarpX_MPI=${HAS_MPI} \
   -D WarpX_COMPUTE=CUDA \
-  -D AMReX_CUDA_ARCH=Volta \
-  -D WarpX_CUDA_ARCH=Volta \
-  -D WarpX_PYTHON=ON \
+  -D AMReX_CUDA_ARCH=${CUDAARCH} \
+  -D AMReX_DIFFERENT_COMPILER=${AMREXSEQ} \
+  -D WarpX_CUDA_ARCH=${CUDAARCH} \
+  -D WarpX_PYTHON=${HAS_PYTHON} \
   -D WarpX_DIMS='2;3' \
   -D WarpX_FFT=${HAS_FFT}
 #  -Wl,–no-relax
@@ -57,10 +56,17 @@ SYSTEM==ls6 CMAKEFLAGS += \
 
 exit
 
-  -D CMAKE_C_FLAGS='-Wl,--no-relax' \
-  -D CMAKE_Fortran_FLAGS='-Wl,--no-relax' \
-  -D CMAKE_LINKER_FLAGS='-mcmodel=medium -Wl,--no-relax' \
-  -D CMAKE_EXE_LINKER_FLAGS='-mcmodel=medium -Wl,--no-relax' \
+Vista:
+    - H200: 9.0
+    - B200: 10.0
+Horizon:
+    I need to see which Blackwell config we have because its either 10.0 or 12.0
+LS6:
+    - A100: 8.0
+    - H100: 9.0
+Stampede 3:
+    - NVIDIA RTX PRO 6000: 12.0
+
 
 cmake -S . -B build_gpu -DWarpX_COMPUTE=CUDA -DWarpX_FFT=ON -DWarpX_QED_TABLE_GEN=ON -DWarpX_DIMS="1;2;RZ;3"
 cmake --build build_gpu -j 16
