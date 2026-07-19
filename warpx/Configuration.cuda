@@ -22,11 +22,12 @@ HAS_FFT = ON
 COMPILER==gcc HAS_FFT=OFF
 HAS_FFT==ON MODULE += fftw3
 
-MODULES += python/3.12
+SYSTEM!=vista MODULES += python/3.12
 
 BUILDSYSTEM = cmake
 
-MODULES += cuda/12.8
+MODULES += cuda
+#/12.8
 MODULEVERSIONEXTRA = cuda
 # to distinguish from omp:
 INSTALLVARIANT = cuda
