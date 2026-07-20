@@ -5,7 +5,7 @@
 ################################################################
 
 PACKAGE = warpx
-PACKAGEVERSION = 26.06
+PACKAGEVERSION = 26.07
 ABOUT = WarpX is an advanced Particle-In-Cell code
 URL = https://github.com/BLAST-WarpX/warpx
 DOCURL = https://warpx.readthedocs.io/en/latest/index.html
@@ -16,4 +16,4 @@ MODE = seq
 BUILDSYSTEM = cmake
 HAS_MPI = OFF
 
-include Configuration.cuda
+include Configuration.cuda_common
