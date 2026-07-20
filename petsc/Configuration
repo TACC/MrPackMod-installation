@@ -20,6 +20,8 @@ MODE = mpi
 BUILDSYSTEM = petsc
 
 # set configure flags
+# rm from downloaded git.scalapack/CMakeLists.txt
+# set_source_files_properties(TOOLS/SL_gridreshape.c PROPERTIES COMPILE_OPTIONS "-Wno-error=implicit-function-declaration")
 PETSCFLAGS =
 ARCH=
 
@@ -39,11 +41,13 @@ PRECISION==single ARCH *= single
 
 # fortran 
 FORTRAN = 90
-COMPILER==gcc HAS_FORTRAN=OFF
-FORTRAN==08 ARCH += f08
-FORTRAN==08  PETSCFLAGS += --with-fortran-bindings=1 --with-mpi-f90module-visibility=0
-FORTRAN==90  PETSCFLAGS += --with-fortran-bindings=1 --with-mpi-f90module-visibility=1
-FORTRAN==OFF PETSCFLAGS += --with-fortran-bindings=0 --with-fc=0
+HAS_FORTRAN = ON
+COMPILER==gcc    HAS_FORTRAN=OFF
+COMPILER==nvidia HAS_FORTRAN=OFF
+HAS_FORTRAN==ON FORTRAN==08 ARCH += f08
+HAS_FORTRAN==ON FORTRAN==08 PETSCFLAGS += --with-fortran-bindings=1 --with-mpi-f90module-visibility=0
+HAS_FORTRAN==ON FORTRAN==90 PETSCFLAGS += --with-fortran-bindings=1 --with-mpi-f90module-visibility=1
+FORTRAN==OFF                PETSCFLAGS += --with-fortran-bindings=0 --with-fc=0
 
 # int length
 INTSIZE = 32
@@ -107,6 +111,7 @@ HAS_PARMETIS==ON MODULENOTE += parmetis
 
 HAS_SCALAPACK=ON
 INSTALLATION==small HAS_SCALAPACK=OFF
+HAS_FORTRAN==OFF    HAS_SCALAPACK=OFF
 HAS_SCALAPACK==ON MODULENOTE += scalapack
 
 # turn off mumps if any of metis/parmetis/scalapack is disabled

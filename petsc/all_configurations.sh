@@ -1,16 +1,21 @@
 #!/bin/bash
 
 function usage () {
-    echo "Usage: $1 [ -h ] [ -j 123 ] [ --install big/small]"
+    echo "Usage: $1 [ -h ] [ -j 123 ]"
+    echo "    [ -f : skip fortran ]"
+    # echo "    [ --install big/small]"
 }
 
-export INSTALLATION=big
+## export INSTALLATION=big
+fortran=ON
 jcount=6
 while [ $# -gt 0 ] ; do
     if [ $1 = "-h" ] ; then
 	usage && exit
-    elif [ $1 == "--install" ] ; then
-	shift && INSTALLATION=$1 && shift
+    # elif [ $1 == "--install" ] ; then
+    # 	shift && INSTALLATION=$1 && shift
+    elif [ $1 == "-f" ] ; then
+	fortran=OFF && shift
     elif [ $1 == "-j" ] ; then
 	shift && jcount=$1 && shift
     else
@@ -25,6 +30,7 @@ for i in 32 46 ; do
 	for d in OFF ON ; do
 	    export DEBUG=$d
 	    SCRIPTSDIR=${PWD}/mpm_scripts_$s$i$d \
+	    HAS_FORTRAN=${fortran} \
 		      mpm.py -j ${jcount} install
 	done
     done
