@@ -2,6 +2,7 @@
 ## common settings for parallelnetcdf,
 ## included in netcdf & netcdff
 ##
+
 BUILDSYSTEM = cmake
 HASBIN = 1
 PREFIXPATHSET = 1
