@@ -9,7 +9,7 @@ module -t reset
 module -t load TACC
 
 echo "module unload intel and others"
-module -t unload intel oneapi gcc impi mvapich2 python3 python2 2>/dev/null
+module -t unload intel oneapi gcc openmpi mvapich2 python3 python2 2>/dev/null
 
 export VICTOR_WORK=${WORK}
 export MODULEROOT=${VICTOR_WORK}/modulefiles
