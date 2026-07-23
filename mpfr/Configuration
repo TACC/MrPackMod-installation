@@ -1,0 +1,17 @@
+################################################################
+####
+#### Makefile for MPFR installation
+####
+################################################################
+
+PACKAGE = mpfr
+PACKAGEVERSION = 4.2.2
+ABOUT = Efficient arbitrary-precision floating-point library
+URL = https://www.mpfr.org/
+CODEURL = https://gitlab.inria.fr/mpfr/mpfr
+DOWNLOADURL = https://www.mpfr.org/mpfr-current/mpfr-${PACKAGEVERSION}.tar.gz
+MODE = seq
+
+BUILDSYSTEM = autotools
+PKGCONFIG = lib/pkgconfig
+PREFIXPATHSET = 1
