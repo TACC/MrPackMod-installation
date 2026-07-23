@@ -1,3 +1,5 @@
+BLAS_VENDOR_FLAG = -D CMAKE_BLA_VENDOR=NVHPC
+
 BLASLAPACK_INC = ${TACC_NVPL_INC}
 BLASLAPACK_LIB = ${TACC_NVPL_LIB}
 # note the semicolons: be sure to single-quote this when using the macros

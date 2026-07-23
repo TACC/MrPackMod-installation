@@ -6,19 +6,23 @@
 
 PACKAGE = suitesparse
 ABOUT = Suite of sparse matrix algorithms
-PACKAGEVERSION = 7.9.0
-#12.2
+PACKAGEVERSION = 7.12.2
 URL = https://github.com/DrTimothyAldenDavis/SuiteSparse
 DOWNLOADURL = https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/refs/tags/v${PACKAGEVERSION}.tar.gz
 BOOTSTRAP = sed -i -e '/\-O3/s/^/\#VLE/' LAGraph/CMakeLists.txt
+GITREPO = https://github.com/DrTimothyAldenDavis/SuiteSparse.git
 MODE = seq
 
 BUILDSYSTEM = cmake
 MODULES = gmp mpfr 
 
-# https://github.com/DrTimothyAldenDavis/SuiteSparse/issues/1049
 CMAKEFLAGS = \
-  -D BLAS_LIBRARIES='${BLASLAPACK_LIBRARIES}'
+  ${BLAS_VENDOR_FLAG}
+NOTCMAKEFLAGS = \
+  -D BLAS_INCLUDE_DIRS='${BLASLAPACK_INC}' \
+  -D BLAS_LIBRARIES='${BLASLAPACK_LIBRARIES}' \
+  -D LAPACK_INCLUDE_DIRS='${BLASLAPACK_INC}' \
+  -D LAPACK_LIBRARIES='${BLASLAPACK_LIBRARIES}'
 
 ## ifeq "${TACC_FAMILY_COMPILER}" "intel"
 ## CMAKEBUILDTYPE = Debug
