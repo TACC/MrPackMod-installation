@@ -37,12 +37,12 @@ CPPSTANDARD = 20
 # lots of package settings
 #
 PYTHON = OFF
-HAS_ADAPTERS = ON
 HAS_EPETRA = ON
 HAS_BOOST = ON
 # exodus seems external to trilinos, so let's turn it off
 HAS_EXODUS = OFF
-HAS_FEI = ${HAS_ADAPTERS}
+
+HAS_HDF5 = ON
 HAS_KOKKOS = ON
 
 HAS_NETCDF = ON
@@ -57,13 +57,18 @@ HAS_PARMETIS = ON
 PARMETISFLAGS = -D parmetis=off
 PARMETISLIBS = 'libparmetis.so;libmetis.so'
 
-HAS_HDF5 = ON
 HAS_OPENMP = OFF
-HAS_TEKO = ${HAS_ADAPTERS}
 
-HAS_MUELU = ON
-HAS_MUMPS = OFF
-HAS_STK = ON
+##
+## Trilinos packages
+##
+HAS_ADAPTERS = ON
+HAS_FEI    = ${HAS_ADAPTERS}
+HAS_MUELU  = ON
+HAS_MUMPS  = OFF
+HAS_PANZER = ON
+HAS_STK    = ON
+HAS_TEKO   = ${HAS_ADAPTERS}
 HAS_YAMLCPP = OFF
 YAMLFLAGS = 
 # if [ "$${HAS_YAMLCPP}" = "1" ] ; then 
