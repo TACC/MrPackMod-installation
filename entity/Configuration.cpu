@@ -7,15 +7,14 @@
 PACKAGE = entity
 ABOUT = New generation astrophysical plasma simulation code with CPU/GPU portability
 URL = https://github.com/entity-toolkit/entity
-PACKAGEVERSION = 1.3.3
-# 1.4.4
+PACKAGEVERSION = 1.4.4
 DOWNLOADURL = https://github.com/entity-toolkit/entity/archive/refs/tags/v${PACKAGEVERSION}.tar.gz
 GITREPO = https://github.com/entity-toolkit/entity.git
-
 MODE = mpi
-MODULES = kokkos adios2 phdf5
 
 BUILDSYSTEM = cmake
+MODULES = kokkos adios2 phdf5
+
 # see `pgens' directory for choices
 CMAKEFLAGS =  \
     -D output=ON -D mpi=ON \
