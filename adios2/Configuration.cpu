@@ -10,15 +10,18 @@
 PACKAGE = adios2
 ABOUT = The Adaptable Input/Output System version 2
 URL = https://github.com/ornladios/ADIOS2
-PACKAGEVERSION = 2.11.0
-# 2.12.1
+PACKAGEVERSION = 2.12.1
+DOWNLOADURL = https://github.com/ornladios/ADIOS2/archive/refs/tags/v${PACKAGEVERSION}.tar.gz
+BOOTSTRAP = sed -i -e /iomanip/a\"\#include <cstdint>\" thirdparty/yaml-cpp/yaml-cpp/src/emitterutils.cpp
+GITREPO = git@github.com:ornladios/ADIOS2.git
 
 MODE = mpi
-MODULES_BASIC = phdf5
-MODULES = ${MODULES_BASIC} 
-## can use hdf5, kokkos, zlib
 
 BUILDSYSTEM = cmake
+
+MODULES = phdf5
+## can use hdf5, kokkos, zlib
+
 # https://adios2.readthedocs.io/en/latest/setting_up/setting_up.html#cmake-options
 # https://github.com/ornladios/ADIOS2/issues/4585
 USEFORTRAN = ON
@@ -30,7 +33,3 @@ CMAKEFLAGS =  \
 HASBIN = 1
 
 DEPENDSONCURRENT = phdf5
-
-DOWNLOADURL = https://github.com/ornladios/ADIOS2/archive/refs/tags/v${PACKAGEVERSION}.tar.gz
-BOOTSTRAP = sed -i -e /iomanip/a\"\#include <cstdint>\" thirdparty/yaml-cpp/yaml-cpp/src/emitterutils.cpp
-GITREPO = git@github.com:ornladios/ADIOS2.git
