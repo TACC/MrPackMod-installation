@@ -10,11 +10,11 @@ URL = https://github.com/entity-toolkit/entity
 PACKAGEVERSION = 1.4.5
 DOWNLOADURL = https://github.com/entity-toolkit/entity/archive/refs/tags/v${PACKAGEVERSION}.tar.gz
 GITREPO = https://github.com/entity-toolkit/entity.git
-
 MODE = mpi
-MODULES = kokkos adios2 phdf5
 
 BUILDSYSTEM = cmake
+MODULES = kokkos adios2 phdf5
+
 # see `pgens' directory for choices
 CMAKEFLAGS =  \
     -D output=ON -D mpi=ON \

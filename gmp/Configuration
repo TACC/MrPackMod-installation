@@ -1,0 +1,17 @@
+################################################################
+####
+#### Makefile for GMP installation
+####
+################################################################
+
+PACKAGE = gmp
+PACKAGEVERSION = 6.3.0
+ABOUT = GNU Multiple Precision Arithmetic Library
+URL = https://gmplib.org/
+DOWNLOADURL = https://gmplib.org/download/gmp/gmp-${PACKAGEVERSION}.tar.xz
+MODE = core
+MODULES = 
+
+BUILDSYSTEM = autotools
+PREFIXPATHSET = 1
+PKGCONFIGLIB = pkgconfig

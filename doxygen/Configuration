@@ -1,0 +1,22 @@
+################################################################
+####
+#### Makefile for doxygen installation
+####
+################################################################
+
+PACKAGE = doxygen
+ABOUT = Widely-used documentation generator tool in software development.
+PACKAGEVERSION = 1.17.0 
+PACKAGEVERSIONDOWNLOAD = 1_17_0
+URL = https://github.com/doxygen/doxygen
+DOWNLOADURL = https://github.com/doxygen/doxygen/archive/refs/tags/Release_${PACKAGEVERSIONDOWNLOAD}.tar.gz
+MODE = core
+
+BUILDSYSTEM = cmake
+
+CMAKEPREFIXPATHSET = 1
+PKGCONFIGLIB = pkgconfig
+HASBIN = 1
+CMAKEFLAGS = \
+    -D SPDLOG_INSTALL=ON
+
