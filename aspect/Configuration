@@ -8,6 +8,7 @@ PACKAGE = aspect
 ABOUT = Advanced Solver for Planetary Evolution, Convection, and Tectonics
 URL = https://aspect.geodynamics.org/
 CODEURL = https://github.com/geodynamics/aspect
+DOCURL = https://community.geodynamics.org/c/aspect/13
 PACKAGEVERSION = 3.0.0
 MODE = mpi
 MODULES = dealii
