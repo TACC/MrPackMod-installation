@@ -25,7 +25,7 @@ CMAKEFLAGS = \
 # I can't figure this one out
 # MODULES += fftw3
 # CMAKEFLAGS += \
-  -D FFTW_LIBRARIES=${TACC_FFTW3_LIB}/libfftw3.so
+#   -D FFTW_LIBRARIES=${TACC_FFTW3_LIB}/libfftw3.so
 
 NOLIB = 1
 PKGCONFIG = share/pkgconfig
