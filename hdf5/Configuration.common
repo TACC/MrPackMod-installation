@@ -20,6 +20,10 @@ THREADSAFE = ON
 # unsupported is needed because C++ & parallel is untested in the distro
 # https://github.com/HDFGroup/hdf5/issues/5683
 
+# zlib trouble:
+# https://forum.hdfgroup.org/t/netcdf-complains-about-hdf5-2/13852
+# enable option has been renamed
+
 CMAKEFLAGS = \
   -D HDF5_ENABLE_PLUGIN_SUPPORT=OFF \
   -D HDF5_ENABLE_THREADSAFE=${THREADSAFE} \
@@ -32,6 +36,8 @@ CMAKEFLAGS = \
   ${SZIP_OPTIONS} \
   \
   -D HDF5_ENABLE_Z_LIB_SUPPORT:BOOL=ON \
+  -D HDF5_ENABLE_ZLIB_SUPPORT:BOOL=ON \
+  -D ZLIB_ROOT=${TACC_ZLIB_DIR} \
   -D ZLIB_INCLUDE_DIR:PATH=${TACC_ZLIB_INC} \
   -D ZLIB_LIBRARY:PATH=${TACC_ZLIB_LIB}/libz.so \
   \
@@ -46,3 +52,8 @@ PKGCONFIGLIB = pkgconfig
 PREFIXPATHSET = 1
 MODULENOTES = Thread-safe mode enabled
 FAMILY = hdf5
+
+exit old options
+
+This does not mean what you think it means:
+  -D ZLIB_USE_EXTERNAL=ON

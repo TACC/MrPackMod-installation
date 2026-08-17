@@ -11,7 +11,7 @@
 PACKAGE = wannier90
 ABOUT = Maximally-localised Wannier functions
 URL = https://github.com/wannier-developers/wannier90
-PACKAGEVERSION = 3.1.0
+PACKAGEVERSION = 4.0.1
 
 MODE = mpi
 MODULES = blaslapack

@@ -13,8 +13,8 @@ DOWNLOADURL = https://github.com/madler/zlib/releases/download/v${PACKAGEVERSION
 MODE = seq
 
 BUILDSYSTEM = cmake
-CMAKFLAGS=\
+CMAKEFLAGS=\
   -D CMAKE_C_FLAGS=-fPIC \
   -D CMAKE_CXX_FLAGS=-fPIC
 PKGCONFIG = share/pkgconfig
-
+PREFIXPATHSET = 1

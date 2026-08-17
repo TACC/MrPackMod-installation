@@ -7,15 +7,14 @@
 PACKAGE = plumed
 ABOUT = The community-developed PLUgin for MolEcular Dynamics
 URL = https://github.com/plumed/plumed2
-PACKAGEVERSION = 2.9.4
-# 2.9.5 and 2.10.1
+PACKAGEVERSION = 2.10.1
 DOWNLOADURL = https://github.com/plumed/plumed2/archive/refs/tags/v${PACKAGEVERSION}.tar.gz
 
 MODE = hybrid
-MODULES = fftw3 gsl zlib \
-    blaslapack
 
 BUILDSYSTEM = autotools
+
+MODULES = fftw3 gsl zlib ${BLASLAPACK}
 
 HAS_PYTHON = no
 CONFIGUREFLAGS = \

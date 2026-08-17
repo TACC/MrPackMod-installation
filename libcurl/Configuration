@@ -1,0 +1,27 @@
+################################################################
+####
+#### Configuration for Libcurl installation
+####
+################################################################
+
+PACKAGE = libcurl
+ABOUT = A command line tool and library for transferring data with URL syntax.
+PACKAGEVERSION = 8.21.0
+PACKAGEVERSIONDOWNLOAD = 8_21_0
+URL = https://curl.se/libcurl/
+CODEURL = https://github.com/curl/curl
+DOWNLOADURL = https://github.com/curl/curl/releases/download/curl-${PACKAGEVERSIONDOWNLOAD}/curl-${PACKAGEVERSION}.tar.gz
+GITREPO = https://github.com/libcurlbuild/libcurl.git
+
+MODE = core
+
+BUILDSYSTEM = autotools
+MODULES = 
+
+PKGCONFIGLIB = pkgconfig
+PREFIXPATHSET = 1
+HASBIN = 1
+
+CONFIGUREFLAGS = --with-openssl --without-libpsl
+##--with-gnutls
+

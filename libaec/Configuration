@@ -1,3 +1,10 @@
+################################################################
+####
+#### Configuration for libaec installation
+#### a dependency of hdf5
+####
+################################################################
+
 PACKAGE = libaec
 ABOUT = Adaptive Entropy Coding library 
 PACKAGEVERSION = 1.1.6
