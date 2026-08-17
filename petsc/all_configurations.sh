@@ -14,9 +14,9 @@ while [ $# -gt 0 ] ; do
 	usage && exit
     # elif [ $1 == "--install" ] ; then
     # 	shift && INSTALLATION=$1 && shift
-    elif [ $1 == "-f" ] ; then
+    elif [ "$1" = "-f" ] ; then
 	fortran=OFF && shift
-    elif [ $1 == "-j" ] ; then
+    elif [ "$1" = "-j" ] ; then
 	shift && jcount=$1 && shift
     else
 	echo "Unknown option <<$1>>" && usage && exit 1
