@@ -1,0 +1,31 @@
+################################################################
+####
+#### Makefile for libxc
+####
+#### Note: Conquest only supports version 4 and 5, but version 6 is out
+####
+################################################################
+
+PACKAGE = libxc
+ABOUT = Library of exchange-correlation functionals for density-functional theory.
+PACKAGEVERSION = 7.0.0
+# 6.2.2
+# 5.2.3
+URL = https://gitlab.com/libxc/libxc
+DOWNLOADURL = https://gitlab.com/libxc/libxc/-/archive/${PACKAGEVERSION}/libxc-${PACKAGEVERSION}.tar.gz
+## http://www.tddft.org/programs/libxc/down.php?file=${PACKAGEVERSION}/libxc-${PACKAGEVERSION}.tar.gz
+
+MODE = seq
+
+BUILDSYSTEM = cmake
+
+CMAKEFLAGS = \
+    -D CMAKE_C_FLAGS="-O2" \
+    -D ENABLE_FORTRAN=ON \
+    -D ENABLE_XHOST=OFF 
+
+#BUILDSTATICLIBS=1
+HASBIN = 1
+PKGCONFIGLIB = pkgconfig
+CMAKEPREFIXPATHSET = 1
+
