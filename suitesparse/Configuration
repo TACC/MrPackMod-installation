@@ -7,12 +7,11 @@
 PACKAGE = suitesparse
 ABOUT = Suite of sparse matrix algorithms
 PACKAGEVERSION = 7.12.3
-# 7.13.0
-PACKAGEVERSION_DOWNLOAD = ${PACKAGEVERSION}
+# 7.14.0
 ## blas problems with 12.2
 # https://github.com/DrTimothyAldenDavis/SuiteSparse/issues/1049
 URL = https://github.com/DrTimothyAldenDavis/SuiteSparse
-DOWNLOADURL = https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/refs/tags/v${PACKAGEVERSION_DOWNLOAD}.tar.gz
+DOWNLOADURL = https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/refs/tags/v${PACKAGEVERSION}.tar.gz
 ## BOOTSTRAP = sed -i -e '/\-O3/s/^/\#VLE/' LAGraph/CMakeLists.txt
 GITREPO = https://github.com/DrTimothyAldenDavis/SuiteSparse.git
 MODE = seq
