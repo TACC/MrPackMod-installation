@@ -14,16 +14,16 @@ while [ $# -gt 0 ] ; do
 	usage && exit
     # elif [ $1 == "--install" ] ; then
     # 	shift && INSTALLATION=$1 && shift
-    elif [ $1 == "-f" ] ; then
+    elif [ "$1" = "-f" ] ; then
 	fortran=OFF && shift
-    elif [ $1 == "-j" ] ; then
+    elif [ "$1" = "-j" ] ; then
 	shift && jcount=$1 && shift
     else
 	echo "Unknown option <<$1>>" && usage && exit 1
     fi
 done
 
-for i in 32 46 ; do
+for i in 32 64 ; do
     export INTSIZE=$i
     for s in real complex ; do
 	export SCALAR=$s
