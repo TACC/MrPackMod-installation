@@ -24,7 +24,7 @@ SUBMODULE = 1
 MODE = mpi
 
 BUILDSYSTEM = cmake
-MODULES = fftw3 parallelnetcdf
+MODULES = fftw3 libxc parallelnetcdf scalapack
 COMPILER==gcc MODULES += mkl
 
 PKGCONFIGLIB = pkgconfig
@@ -34,6 +34,8 @@ PKGCONFIGLIB = pkgconfig
 ## CMAKEBUILDDEBUG = 1
 # for nvidia add flag: -Mextend ?
 # --log-level=debug --log-context
+# installation notes:
+# https://docs.siesta-project.org/projects/siesta/en/stable/installation/build-manually.html
 CMAKEFLAGS =  \
     -D SIESTA_WITH_FLOOK=FALSE \
     -D Fortran_FLAGS_DEBUG=-O0 \
@@ -42,9 +44,55 @@ CMAKEFLAGS =  \
     -D SIESTA_WITH_WANNIER90=ON \
     -D NetCDF_ROOT=${TACC_PARALLELNETCDF_DIR} \
     \
-    -D SIESTA_WITH_FFTW=TRUE
+    -D SCALAPACK_LIBRARY_DIR=${TACC_MKL_LIB} \
+    -D SCALAPACK_LIBRARY='-lmkl_scalapack_lp64 -lmkl_blacs_intelmpi_lp64 -lmkl_gf_lp64 -lmkl_sequential -lmkl_core -lpthread -lm -ldl' \
+    -D NOT_SCALAPACK_LIBRARY=${TACC_SCALAPACK_LIB}/libscalapack.so \
+    \
+    -D SIESTA_WITH_DFTD3=ON \
+    -D SIESTA_WITH_ELPA=OFF \
+    -D SIESTA_WITH_FFTW=OFF \
+    -D NOT_FFTW_LIBRARY_DIR=${TACC_FFTW3_LIB} \
+    -D NOT_FFTW_LIBRARY=libfftw3.so \
+    -D SIESTA_WITH_LIBXC=ON
+
 COMPILER==gcc CMAKEFLAGS += -DLAPACK_LIBRARY='${BLASLAPACK_LIBS}'
 
 HASBIN = 1
 CPTOINSTALLDIR = Examples Tests
 
+exit user settings
+-DSIESTA_WITH_FFTW=ON \
+  -DSIESTA_WITH_LIBXC=ON \
+  -DSIESTA_WITH_NETCDF=ON \
+  -DSIESTA_WITH_DFTD3=ON \
+  ELPA refuses to be downloaded let alone built
+  -DSIESTA_WITH_ELPA=ON \
+  -DSIESTA_WITH_MPI=ON \
+
+module load gcc/13.2.0 mkl/24.0 impi/21.9 cmake/4.1.1 libxc/7.0.0
+
+#rm -rf _build ./Bbin
+
+cmake -S . -B _build \
+-DCMAKE_INSTALL_PREFIX="$PWD/Bbin"
+-DCMAKE_PREFIX_PATH=${TACC_LIBXC_DIR} \
+-DSCALAPACK_LIBRARY_DIR=${TACC_MKL_LIB} \
+-DSCALAPACK_LIBRARY="-lmkl_scalapack_lp64 -lmkl_blacs_intelmpi_lp64 -lmkl_gf_lp64 -lmkl_sequential -lmkl_core -lpthread -lm -ldl" \
+-DLAPACK_LIBRARY="NONE" \
+-DBLAS_LIBRARY_DIR=${TACC_MKL_LIB} \
+-DBLAS_LIBRARY="-Wl,--start-group -lmkl_gf_lp64 -lmkl_sequential -lmkl_core -Wl,--end-group -lpthread -lm -ldl" \
+-DSIESTA_WITH_MPI=ON \
+-DSIESTA_WITH_OPENMP=OFF \
+-DSIESTA_WITH_FFTW=ON \
+-DSIESTA_WITH_LIBXC=ON \
+-DSIESTA_WITH_NETCDF=ON \
+-DSIESTA_WITH_DFTD3=ON \
+-DSIESTA_WITH_ELPA=ON \
+-DSIESTA_WITH_FLOOK=OFF \
+-DSIESTA_WITH_PEXSI=OFF \
+-DSIESTA_WITH_CHESS=OFF \
+-DSIESTA_WITH_WANNIER90=OFF \
+-DSIESTA_WITH_GRID_SP=OFF \
+-DSIESTA_WITH_PROFILE_NVTX=OFF \
+-DCMAKE_C_COMPILER=mpicc
+-DCMAKE_Fortran_COMPILER=mpif90

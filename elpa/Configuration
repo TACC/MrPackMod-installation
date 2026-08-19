@@ -1,0 +1,24 @@
+################################################################
+####
+#### Makefile for ELPA
+####
+#### THE DOWNLOADED FILES ARE NOT ACTUALLY tar.gz FILES
+####
+################################################################
+
+PACKAGE = elpa
+ABOUT = Library of exchange-correlation functionals for density-functional theory.
+PACKAGEVERSION = 2026.02.002
+PACKAGEVERSION_DOWNLOAD = 2026_02_002
+URL = https://elpa.mpcdf.mpg.de/
+DOWNLOADURL = https://gitlab.mpcdf.mpg.de/elpa/elpa/-/archive/new_release_${PACKAGEVERSION_DOWNLOAD}/elpa-new_release_${PACKAGEVERSION_DOWNLOAD}.tar.gz
+
+MODE = mpi
+
+BUILDSYSTEM = cmake
+
+CMAKEFLAGS = 
+
+PKGCONFIGLIB = pkgconfig
+CMAKEPREFIXPATHSET = 1
+
