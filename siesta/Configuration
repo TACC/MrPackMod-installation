@@ -25,7 +25,8 @@ MODE = mpi
 
 BUILDSYSTEM = cmake
 MODULES = fftw3 parallelnetcdf
-COMPILER==gcc MODULES += mkl
+SYSTEM==horizon COMPILER==gcc MODULES += nvpl
+SYSTEM!=horizon COMPILER==gcc MODULES += mkl
 
 PKGCONFIGLIB = pkgconfig
 
