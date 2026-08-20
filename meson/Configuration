@@ -1,0 +1,26 @@
+################################################################
+####
+#### Makefile for Meson installation
+####
+################################################################
+
+PACKAGE = meson
+ABOUT = The Meson Build System
+URL = https://github.com/mesonbuild/meson
+PACKAGEVERSION = 1.12.0
+DOWNLOADURL = https://github.com/mesonbuild/meson/archive/refs/tags/${PACKAGEVERSION}.tar.gz
+GITREPO = https://github.com/mesonbuild/meson.git
+MODE = core
+
+BUILDSYSTEM = pip
+MODULES = 
+
+PKGCONFIGLIB = pkgconfig
+CMAKEPREFIXPATHSET = 1
+NOINC = 1
+NOLIB = 1
+HASBIN = 1
+
+## ( cd $${srcdir} && pip3 install --target=$${prefixdir} . ) 
+
+

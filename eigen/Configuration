@@ -14,11 +14,19 @@ URL = https://eigen.tuxfamily.org/index.php?title=Main_Page
 SOFTWAREURL = https://gitlab.com/libeigen/eigen/-/tree/master
 DOWNLOADURL = https://gitlab.com/libeigen/eigen/-/archive/${PACKAGEVERSION}/eigen-${PACKAGEVERSION}.tar.gz
 GITREPO = https://gitlab.com/libeigen/eigen.git
-
-MODULES = 
 MODE = seq
 
 BUILDSYSTEM = cmake
+
+MODULES = boost
+CMAKEFLAGS = \
+  -D Boost_DIR=${TACC_BOOST_DIR}
+
+# I can't figure this one out
+# MODULES += fftw3
+# CMAKEFLAGS += \
+#   -D FFTW_LIBRARIES=${TACC_FFTW3_LIB}/libfftw3.so
+
 NOLIB = 1
 PKGCONFIG = share/pkgconfig
 PREFIXPATHSET = 1

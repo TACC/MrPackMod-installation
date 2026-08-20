@@ -9,6 +9,7 @@ ABOUT = C and Fortran library for reading and writing FITS files
 URL = https://github.com/HEASARC/cfitsio
 CODEURL = https://heasarc.gsfc.nasa.gov/fitsio/
 PACKAGEVERSION = 4.6.4
+# 4.7.0
 MODE = seq
 
 BUILDSYSTEM = autotools

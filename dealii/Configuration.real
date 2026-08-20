@@ -11,6 +11,7 @@ PACKAGE = dealii
 ABOUT = Finite Element Library
 URL = https://github.com/dealii/dealii
 PACKAGEVERSION = 9.7.1
+# 9.8.0
 DOWNLOADURL = https://github.com/dealii/dealii/releases/download/v${PACKAGEVERSION}/dealii-${PACKAGEVERSION}.tar.gz
 GITREPO = https://github.com/dealii/dealii.git
 MODE = mpi

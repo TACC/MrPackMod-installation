@@ -47,7 +47,7 @@ COMPILER==nvidia HAS_FORTRAN=OFF
 HAS_FORTRAN==ON FORTRAN==08 ARCH += f08
 HAS_FORTRAN==ON FORTRAN==08 PETSCFLAGS += --with-fortran-bindings=1 --with-mpi-f90module-visibility=0
 HAS_FORTRAN==ON FORTRAN==90 PETSCFLAGS += --with-fortran-bindings=1 --with-mpi-f90module-visibility=1
-FORTRAN==OFF                PETSCFLAGS += --with-fortran-bindings=0 --with-fc=0
+HAS_FORTRAN==OFF            PETSCFLAGS += --with-fortran-bindings=0 --with-fc=0
 
 # int length
 INTSIZE = 32
