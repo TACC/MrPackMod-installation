@@ -10,9 +10,9 @@ URL = https://charmplusplus.org/
 CODEURL = https://github.com/UIUC-PPL/charm
 PACKAGEVERSION = 8.0.1
 DOWNLOADURL = https://github.com/charmplusplus/charm/archive/refs/tags/v${PACKAGEVERSION}.tar.gz
+MODE = mpi
 
 BUILDSYSTEM = cmake
-MODE = mpi
 MODULES = 
 
 CMAKEFLAGS = \

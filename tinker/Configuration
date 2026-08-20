@@ -5,9 +5,9 @@ CODEURL = https://github.com/TinkerTools/tinker
 PACKAGEVERSION = 26.1.2
 DOWNLOADURL = https://github.com/TinkerTools/tinker/archive/refs/tags/v${PACKAGEVERSION}.tar.gz
 GITREPO = https://github.com/TinkerTools/tinker.git
+MODE = mpi
 
 BUILDSYSTEM = cmake
-MODE = mpi
 MODULES = fftw3
 CMAKESUBDIR = cmake
 HASBIN = 1

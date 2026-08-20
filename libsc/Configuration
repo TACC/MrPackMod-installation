@@ -14,6 +14,8 @@ DOWNLOADURL = https://github.com/cburstedde/libsc/archive/refs/tags/v${PACKAGEVE
 
 SKIPPACKAGE = 1
 MODE = seq
+
+BUILDSYSTEM = cmake
 MODULES = 
 
 PKGCONFIGLIB = 1
