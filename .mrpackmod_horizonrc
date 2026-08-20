@@ -1,3 +1,4 @@
+BLASLAPACK_ROOT = ${TACC_NVPL_DIR}
 BLAS_VENDOR_FLAG = -D CMAKE_BLA_VENDOR=NVHPC
 
 BLASLAPACK_INC = ${TACC_NVPL_INC}
@@ -7,3 +8,4 @@ BLASLAPACK_LIBS = nvpl_lapack_lp64_seq;nvpl_lapack_core;nvpl_blas_lp64_seq;nvpl_
 # note the semicolons: be sure to single-quote this when using the macros
 BLASLAPACK_LIBRARIES = ${TACC_NVPL_LIB}/libnvpl_lapack_lp64_seq.so;${TACC_NVPL_LIB}/libnvpl_lapack_core.so;${TACC_NVPL_LIB}/libnvpl_blas_lp64_seq.so;${TACC_NVPL_LIB}/libnvpl_blas_core.so
 
+SCALAPACK_LIBS = mkl_scalapack_lp64;mkl_blacs_intelmpi_lp64;mkl_gf_lp64;mkl_sequential;mkl_core;pthread;m;dl

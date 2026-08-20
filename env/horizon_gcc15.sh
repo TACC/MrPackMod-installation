@@ -17,7 +17,7 @@ export MODULEROOT=${VICTOR_WORK}/modulefiles
 export VICTOR_MODULEPATH_ROOT=${MODULEROOT}
 module use ${VICTOR_MODULEPATH_ROOT}/Core
 
-gccversion=16.1.0
+gccversion=15.3.0
 echo "loading gcc ${gccversion}"
 module -t load gcc/${gccversion}
 module -t load nvpl
