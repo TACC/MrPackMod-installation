@@ -1,3 +1,9 @@
+################################################################
+####
+#### Configuration for Tinker installation
+####
+################################################################
+
 PACKAGE = tinker
 ABOUT = Software Tools for Molecular Design 
 URL = https://dasher.wustl.edu/tinker/
