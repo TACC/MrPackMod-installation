@@ -21,8 +21,10 @@ BUILDSYSTEM = cmake
 MODULES = 
 
 CMAKEFLAGS = \
-  -D ENABLE_OMP=ON \
+  -D ENABLE_OPENMP=ON \
   -D BUILD_TESTS=OFF
+# not needed:   -D ENABLE_FORTRAN=ON
+
 CONFIGUREFLAGS = \
     --with-pic \
     --enable-shared \

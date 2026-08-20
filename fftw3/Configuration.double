@@ -4,6 +4,8 @@
 ####
 #### double variant
 ####
+#### NO LONGER USED, SEE Configuration.cmake
+####
 ################################################################
 
 PACKAGE = fftw3
@@ -20,6 +22,7 @@ MODULES =
 
 CONFIGUREFLAGS = \
     --with-pic \
+    --enable-fortran \
     --enable-shared \
     --enable-openmp \
     --enable-threads \
