@@ -55,7 +55,8 @@ HAS_PNETCDF==OFF PNETCDFFLAGS = -D pnetcdf=off
 
 HAS_PARMETIS = ON
 PARMETISFLAGS = -D parmetis=off
-PARMETISLIBS = 'libparmetis.so;libmetis.so'
+# make sure to single-quote this
+PARMETISLIBS = libparmetis.so;libmetis.so
 
 HAS_OPENMP = OFF
 
