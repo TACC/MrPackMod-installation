@@ -1,6 +1,6 @@
 ################################################################
 ####
-#### Makefile for Octopus installation
+#### Configuration for Octopus installation
 ####
 ################################################################
 
@@ -12,6 +12,8 @@ PACKAGEVERSION = 16.4
 GITTAG = 16.4
 
 MODE = mpi
+
+BUILDSYSTEM = cmake
 MODULES = gsl scalapack
 #    blaslapack 
 OCTOPUS_MPI = ON

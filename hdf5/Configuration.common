@@ -57,3 +57,4 @@ exit old options
 
 This does not mean what you think it means:
   -D ZLIB_USE_EXTERNAL=ON
+or set to OFF

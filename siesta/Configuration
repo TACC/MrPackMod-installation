@@ -25,8 +25,6 @@ MODE = mpi
 
 BUILDSYSTEM = cmake
 MODULES = fftw3 libxc parallelnetcdf
-# scalapack
-COMPILER==gcc MODULES += mkl
 
 PKGCONFIGLIB = pkgconfig
 
@@ -45,18 +43,17 @@ CMAKEFLAGS =  \
     -D SIESTA_WITH_WANNIER90=ON \
     -D NetCDF_ROOT=${TACC_PARALLELNETCDF_DIR} \
     \
-    -D BLAS_LIBRARY_DIR=${TACC_MKL_LIB} \
-    -D LAPACK_LIBRARY_DIR=${TACC_MKL_LIB} \
-    -D SCALAPACK_LIBRARY_DIR=${TACC_MKL_LIB} \
-    -D SCALAPACK_LIBRARY='-lmkl_scalapack_lp64 -lmkl_blacs_intelmpi_lp64 -lmkl_gf_lp64 -lmkl_sequential -lmkl_core -lpthread -lm -ldl' \
+    -D BLAS_LIBRARY_DIR=${BLASLAPACK_LIB} \
+    -D LAPACK_LIBRARY_DIR=${BLASLAPACK_LIB} \
+    -D SCALAPACK_LIBRARY_DIR=${BLASLAPACK_LIB} \
+    -D SCALAPACK_LIBRARY='${SCALAPACK_LIBS}' \
     \
     -D SIESTA_WITH_DFTD3=ON \
     -D SIESTA_WITH_ELPA=OFF \
     -D SIESTA_WITH_FFTW=ON -D FFTW_ROOT=${TACC_FFTW3_DIR} \
     -D SIESTA_WITH_LIBXC=ON
 #     -D SCALAPACK_LIBRARY=${TACC_SCALAPACK_LIB}/libscalapack.so 
-#    -D NOT_FFTW_LIBRARY_DIR=${TACC_FFTW3_LIB} 
-#    -D NOT_FFTW_LIBRARY=libfftw3.so 
+# -lmkl_scalapack_lp64 -lmkl_blacs_intelmpi_lp64 -lmkl_gf_lp64 -lmkl_sequential -lmkl_core -lpthread -lm -ldl' 
 
 COMPILER==gcc CMAKEFLAGS += -DLAPACK_LIBRARY='${BLASLAPACK_LIBS}'
 

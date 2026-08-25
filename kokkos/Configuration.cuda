@@ -5,8 +5,7 @@
 ################################################################
 
 PACKAGE = kokkos
-PACKAGEVERSION = 5.2.0
-# 5.2.1
+PACKAGEVERSION = 5.2.1
 # also 4.7.04
 ABOUT = C++ Performance Portability Programming Ecosystem
 URL = https://github.com/kokkos/kokkos
@@ -14,6 +13,9 @@ DOWNLOADURL = https://github.com/kokkos/kokkos/archive/refs/tags/${PACKAGEVERSIO
 DOCURL = https://kokkos.github.io/kokkos-core-wiki/building.html
 
 MODE = seq
+
+BUILDSYSTEM = cmake
+
 MODULES = cuda
 MODULE_MINIMUM_VERSION_cuda = 12
 
@@ -21,16 +23,18 @@ SYSTEM==fontera   HOST = CLX
 SYSTEM==ls6       HOST = MILAN
 SYSTEM==stampede3 HOST = SPR
 SYSTEM==vista     HOST = B200
+SYSTEM==horizon   HOST = B200
 
 SYSTEM==frontera  COMPUTE = TURING75
 SYSTEM==ls6       COMPUTE = TURING75
 SYSTEM==stampede3 COMPUTE = HOPPER90
 SYSTEM==vista     COMPUTE = HOPPER90
+SYSTEM==horizon   COMPUTE = BLACKWELL100
 
-BUILDSYSTEM = cmake
 CMAKEFLAGS = \
     -D Kokkos_ENABLE_SERIAL=ON \
-    -D Kokkos_ENABLE_CUDA=ON -D Kokkos_ENABLE_CUDA_LAMBDA=ON \
+    -D Kokkos_ENABLE_CUDA=ON \
+    -D Kokkos_ENABLE_CUDA_LAMBDA=ON \
     -D Kokkos_ARCH_${COMPUTE}=ON
 #  
 #  -D Kokkos_ENABLE_OPENMP=ON
@@ -45,7 +49,7 @@ INSTALLVARIANT = cuda
 MODULEVERSIONEXTRA = cuda
 DEPENDSONCURRENT = cuda
 
-EXTRAVARS = "Kokkos_ENABLE_CUDA=ON Kokkos_ARCH_${COMPUTE}=ON Kokkos_ARCH_${HOST}=ON"
+EXTRAVARS = Kokkos_ENABLE_CUDA=ON Kokkos_ARCH_${COMPUTE}=ON
 
 DOWNLOADURL = https://github.com/kokkos/kokkos/archive/refs/tags/${PACKAGEVERSION}.tar.gz
 GITREPO = https://github.com/kokkos/kokkos.git
