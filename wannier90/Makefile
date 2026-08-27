@@ -12,7 +12,7 @@ PACKAGE = wannier90
 ABOUT = Maximally-localised Wannier functions
 URL = https://github.com/wannier-developers/wannier90
 PACKAGEVERSION = 4.0.1
-
+# 4.0.2
 MODE = mpi
 MODULES = blaslapack
 
