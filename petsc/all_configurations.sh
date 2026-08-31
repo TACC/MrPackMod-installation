@@ -23,7 +23,7 @@ while [ $# -gt 0 ] ; do
     fi
 done
 
-for i in 32 64 ; do
+for i in 64 32 ; do
     export INTSIZE=$i
     for s in real complex ; do
 	export SCALAR=$s
