@@ -8,6 +8,7 @@ PACKAGE = libcurl
 ABOUT = A command line tool and library for transferring data with URL syntax.
 PACKAGEVERSION = 8.21.0
 PACKAGEVERSIONDOWNLOAD = 8_21_0
+# 8.22.0
 URL = https://curl.se/libcurl/
 CODEURL = https://github.com/curl/curl
 DOWNLOADURL = https://github.com/curl/curl/releases/download/curl-${PACKAGEVERSIONDOWNLOAD}/curl-${PACKAGEVERSION}.tar.gz
