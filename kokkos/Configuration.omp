@@ -5,8 +5,7 @@
 ################################################################
 
 PACKAGE = kokkos
-PACKAGEVERSION = 5.2.0
-# 5.2.1
+PACKAGEVERSION = 5.2.1
 # also 4.7.04
 ABOUT = C++ Performance Portability Programming Ecosystem
 URL = https://github.com/kokkos/kokkos

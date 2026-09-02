@@ -7,7 +7,7 @@
 PACKAGE = catch2
 ABOUT = A modern, C++-native, test framework for unit-tests, TDD and BDD
 URL = https://github.com/catchorg/Catch2
-PACKAGEVERSION = 3.15.3
+PACKAGEVERSION = 3.16.0
 MODE = seq
 MODULES = 
 

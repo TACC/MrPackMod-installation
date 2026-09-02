@@ -13,6 +13,7 @@ ABOUT = Package for graph and mesh/hypergraph partitioning, graph clustering, an
 URL = https://www.labri.fr/perso/pelegrin/scotch/ \
     https://gitlab.inria.fr/scotch/scotch
 PACKAGEVERSION = 7.0.12
+# 7.0.14
 DOWNLOADURL = https://gitlab.inria.fr/scotch/scotch/-/archive/v${PACKAGEVERSION}/scotch-v${PACKAGEVERSION}.tar.gz
 GITREPO = https://gitlab.inria.fr/scotch/scotch.git
 

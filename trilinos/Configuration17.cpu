@@ -13,10 +13,10 @@ URL = https://github.com/trilinos/Trilinos
 # until move is complete:
 # https://trilinos.github.io/pdfs/TrilinosBuildReference.pdf
 DOCURL = https://github.com/trilinos/Trilinos/blob/master/doc/build_ref/TrilinosBuildReferenceTemplate.rst
-# https://www.docs.trilinos.org/files/TrilinosBuildReference.html
+DOCURL = https://trilinos.github.io/TrilinosBuildReference.html
 
-PACKAGEVERSION = 17.2.0
-PACKAGEVERSION_DOWNLOAD = 17-2-0
+PACKAGEVERSION = 17.2.1
+PACKAGEVERSION_DOWNLOAD = 17-2-1
 
 DOWNLOADURL = https://github.com/trilinos/Trilinos/archive/refs/tags/trilinos-release-${PACKAGEVERSION_DOWNLOAD}.tar.gz
 GITREPO = git@github.com:trilinos/Trilinos.git
@@ -61,7 +61,8 @@ HAS_PNETCDF==OFF PNETCDFFLAGS = -D pnetcdf=off
 
 HAS_PARMETIS = ON
 PARMETISFLAGS = -D parmetis=off
-PARMETISLIBS = 'libparmetis.so;libmetis.so'
+# make sure to single-quote this
+PARMETISLIBS = libparmetis.so;libmetis.so
 
 HAS_OPENMP = OFF
 
@@ -85,8 +86,9 @@ TRILINOS_BLAS_INC    = ${BLASLAPACK_INC}
 TRILINOS_LAPACK_INC  = ${BLASLAPACK_INC}
 TRILINOS_BLAS_LIB    = ${BLASLAPACK_LIB}
 TRILINOS_LAPACK_LIB  = ${BLASLAPACK_LIB}
-TRILINOS_BLAS_LIBS   = ${BLASLAPACK_LIBS}
-TRILINOS_LAPACK_LIBS = ${BLASLAPACK_LIBS}
+# full paths
+TRILINOS_BLAS_LIBS   = ${BLASLAPACK_LIBRARIES}
+TRILINOS_LAPACK_LIBS = ${BLASLAPACK_LIBRARIES}
 
 DEPRECATED=OFF 
 HAS_TEUCHOS=ON 
