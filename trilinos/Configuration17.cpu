@@ -23,7 +23,7 @@ GITREPO = git@github.com:trilinos/Trilinos.git
 
 ##
 MODE = hybrid
-MODULES = boost swig phdf5 
+MODULES = swig phdf5 
 # blaslapack
 HAS_CUDA = OFF
 MODULE_MINIMUM_VERSION_intel = 20
@@ -38,9 +38,15 @@ CPPSTANDARD = 20
 #
 PYTHON = OFF
 HAS_EPETRA = ON
-HAS_BOOST = ON
 # exodus seems external to trilinos, so let's turn it off
 HAS_EXODUS = OFF
+
+HAS_BOOST = ON
+HAS_BOOST==ON MODULES += boost
+BOOSTFLAGS =
+HAS_BOOST==ON BOOSTFLAGS = \
+  -D Boost_LIBRARY_DIRS=${TACC_BOOST_LIB} \
+  -D Boost_INCLUDE_DIRS=${TACC_BOOST_INC}
 
 HAS_HDF5 = ON
 HAS_KOKKOS = ON
