@@ -93,9 +93,6 @@ CMAKEFLAGS = \
   -D Trilinos_ENABLE_OpenMP:BOOL=${HAS_OPENMP} \
   \
   -D TPL_ENABLE_MPI:BOOL=ON \
-  -D MPI_BASE_DIR=${TACC_IMPI_DIR}/intel64 \
-  -D MPI_INCLUDE_DIRS=${TACC_IMPI_INC} \
-  -D MPI_EXEC:FILEPATH='/opt/apps/xalt/0.6/bin/ibrun' \
   -D TPL_ENABLE_GLM=OFF \
   -D TPL_ENABLE_Matio=OFF \
   \
@@ -209,3 +206,10 @@ CMAKEFLAGS = \
       -D Trilinos_ENABLE_STKMesh:BOOL=${HAS_STK} \
   \
   -D SWIG_EXECUTABLE:FILEPATH=${TACC_SWIG_BIN}/swig
+
+return
+
+Not needed?
+  -D MPI_BASE_DIR=${TACC_IMPI_DIR}/intel64 \
+  -D MPI_INCLUDE_DIRS=${TACC_IMPI_INC} \
+  -D MPI_EXEC:FILEPATH='/opt/apps/xalt/0.6/bin/ibrun' \
