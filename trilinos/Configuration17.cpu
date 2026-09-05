@@ -63,6 +63,7 @@ HAS_PARMETIS = ON
 PARMETISFLAGS = -D parmetis=off
 # make sure to single-quote this
 PARMETISLIBS = libparmetis.so;libmetis.so
+HAS_PARMETIS==ON MODULE += parmetis
 
 HAS_OPENMP = OFF
 
@@ -76,11 +77,8 @@ HAS_MUMPS  = OFF
 HAS_PANZER = ON
 HAS_STK    = ON
 HAS_TEKO   = ${HAS_ADAPTERS}
+
 HAS_YAMLCPP = OFF
-YAMLFLAGS = 
-# if [ "$${HAS_YAMLCPP}" = "1" ] ; then 
-# source $${scriptdir}/../yaml-cpp/yamlcpp_vars.sh
-# fi
 
 TRILINOS_BLAS_INC    = ${BLASLAPACK_INC}
 TRILINOS_LAPACK_INC  = ${BLASLAPACK_INC}
