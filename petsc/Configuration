@@ -6,6 +6,7 @@
 
 PACKAGE = petsc
 ABOUT = Portable, Extensible Toolkit for Scientific Computation
+CATEGORY = library, mathematics
 URL = https://petsc.org
 SOFTWAREURL = https://petsc.org/release/install/download/
 

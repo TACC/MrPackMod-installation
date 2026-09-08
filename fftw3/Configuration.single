@@ -8,6 +8,7 @@
 
 PACKAGE = fftw3
 ABOUT = Fastest Fourier Transform in the West, version 3
+CATEGORY = library, mathematics
 URL = http://fftw.org/
 DOCURL = http://www.fftw.org/fftw3_doc/Installation-on-Unix.html
 PACKAGEVERSION = 3.3.10

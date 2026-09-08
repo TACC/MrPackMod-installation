@@ -11,6 +11,8 @@
 ################################################################
 
 PACKAGE = nekrs
+ABOUT = next generation fast and scalable CFD code
+CATEGORY = application, physics
 MODE = mpi
 
 include Configuration.basic

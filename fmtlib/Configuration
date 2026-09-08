@@ -6,6 +6,7 @@
 
 PACKAGE = fmtlib
 ABOUT = A modern formatting library
+CATEGORY = library, I/O, C++
 URL = https://fmt.dev/
 CODEURL = https://github.com/fmtlib/fmt
 PACKAGEVERSION = 12.2.0

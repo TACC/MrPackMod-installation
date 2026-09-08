@@ -11,6 +11,7 @@
 PACKAGE = parmetis
 URL = https://github.com/scibuilder/parmetis
 ABOUT = parallel graph partitioner
+CATEGORY = library, meshing
 PACKAGEVERSION = 4.0.3
 GITREPO = https://github.com/scibuilder/parmetis.git
 DOWNLOADURL = https://github.com/scibuilder/parmetis/archive/refs/heads/master.zip

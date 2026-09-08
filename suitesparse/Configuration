@@ -6,6 +6,7 @@
 
 PACKAGE = suitesparse
 ABOUT = Suite of sparse matrix algorithms
+CATEGORY = library, mathematics
 PACKAGEVERSION = 7.12.3
 # 7.14.0
 ## blas problems with 12.2
