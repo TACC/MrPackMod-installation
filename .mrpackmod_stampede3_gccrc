@@ -6,7 +6,7 @@ BLASLAPACK_INC = ${TACC_MKL_INC}
 BLASLAPACK_LIB = ${TACC_MKL_LIB}
 # note the semicolons: be sure to single-quote this when using the macros
 BLASLAPACK_LIBS = mkl_intel_lp64;mkl_blas_core;mkl_rt;pthread
-BLASLAPACK_THREAD_LIBS = mkl_intel_gf_lp64;mkl_core;mkl_rt;pthread
+BLASLAPACK_THREAD_LIBS = mkl_intel_gf_lp64;mkl_core;mkl_rt;pthread;mkl_sequential;mkl_gnu_thread
 # note the semicolons: be sure to single-quote this when using the macros
-BLASLAPACK_LIBRARIES = ${TACC_MKL_LIB}/libmkl_intel_lp64.so;${TACC_MKL_LIB}/libmkl_core.so
+BLASLAPACK_LIBRARIES = ${TACC_MKL_LIB}/libmkl_intel_lp64.so;${TACC_MKL_LIB}/libmkl_core.so;${TACC_MKL_LIB}/mkl_sequential;${TACC_MKL_LIB}/mkl_gnu_thread
 
