@@ -6,6 +6,7 @@
 
 PACKAGE = highfive
 ABOUT = Header-only C++ HDF5 interface
+CATEGORY = library, storage, C++
 PACKAGEVERSION = 3.2.0
 URL = https://github.com/highfive-devs/highfive
 DOCURL = https://highfive-devs.github.io/highfive/

@@ -9,6 +9,7 @@
 
 PACKAGE = eigen
 ABOUT = C++ template library for linear algebra
+CATEGORY = library, mathematics
 PACKAGEVERSION = 5.0.0
 URL = https://eigen.tuxfamily.org/index.php?title=Main_Page
 SOFTWAREURL = https://gitlab.com/libeigen/eigen/-/tree/master

@@ -9,6 +9,7 @@ PACKAGEVERSION = 5.9.0
 URL = https://www.mumps-solver.org/
 DOWNLOADURL = https://mumps-solver.org/MUMPS_${PACKAGEVERSION}.tar.gz
 # I'm not sure about the sequential mode
+CATEGORY = library, mathematics
 MODE = mpi
 
 BUILDSYSTEM = make

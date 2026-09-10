@@ -6,6 +6,7 @@
 
 PACKAGE = trilinos
 ABOUT = Collection of reusable scientific software libraries
+CATEGORY = library, mathematics
 URL = https://github.com/trilinos/Trilinos
 
 # https://github.com/trilinos/Trilinos/issues/14831
@@ -23,9 +24,11 @@ GITREPO = git@github.com:trilinos/Trilinos.git
 
 ##
 MODE = hybrid
-MODULES = boost swig phdf5 parallelnetcdf parmetis pnetcdf
+MODULES = boost swig phdf5 parallelnetcdf pnetcdf
 #blaslapack
 MODULE_MINIMUM_VERSION_intel = 20
+
+HAS_PARMETIS = ON
 
 BUILDSYSTEM = cmake
 PREFIXPATHSET = 1
@@ -54,12 +57,12 @@ HAS_OPENMP = ON
 HAS_TEKO = ${HAS_ADAPTERS}
 
 HAS_MUELU = ON
+
 HAS_MUMPS = OFF
+
 HAS_STK = ON
-HAS_YAMLCPP = OFF 
-# if [ "$${HAS_YAMLCPP}" = "1" ] ; then 
-# source $${scriptdir}/../yaml-cpp/yamlcpp_vars.sh
-# fi
+
+HAS_YAMLCPP = OFF
 
 TRILINOS_BLAS_INC    = ${BLASLAPACK_INC}
 TRILINOS_LAPACK_INC  = ${BLASLAPACK_INC}
@@ -70,6 +73,8 @@ TRILINOS_LAPACK_LIBS = ${BLASLAPACK_LIBS}
 
 DEPRECATED=OFF 
 HAS_TEUCHOS=ON 
+
+include Configuration17.dependencies
 
 CMAKEFLAGS = \
   -D Trilinos_VERBOSE_CONFIGURE=ON \
@@ -93,17 +98,16 @@ CMAKEFLAGS = \
   -D Trilinos_ENABLE_OpenMP:BOOL=${HAS_OPENMP} \
   \
   -D TPL_ENABLE_MPI:BOOL=ON \
-  -D MPI_BASE_DIR=${TACC_IMPI_DIR}/intel64 \
-  -D MPI_INCLUDE_DIRS=${TACC_IMPI_INC} \
-  -D MPI_EXEC:FILEPATH='/opt/apps/xalt/0.6/bin/ibrun' \
   -D TPL_ENABLE_GLM=OFF \
   -D TPL_ENABLE_Matio=OFF \
   \
   -D TPL_ENABLE_BLAS=ON \
-  -D TPL_BLAS_INCLUDE_DIRS:PATH=${BLASLAPACK_INC} \
-  -D TPL_BLAS_LIBRARIES:STRING='${BLASLAPACK_LIBS}' \
-  -D TPL_LAPACK_INCLUDE_DIRS:PATH=${BLASLAPACK_INC} \
-  -D TPL_LAPACK_LIBRARIES:STRING='${BLASLAPACK_LIBS}' \
+  -D TPL_BLAS_INCLUDE_DIRS=${BLASLAPACK_INC} \
+  -D TPL_BLAS_LIBRARIES='${BLASLAPACK_LIBRARIES}' \
+  \
+  -D TPL_ENABLE_LAPACK=ON \
+  -D TPL_LAPACK_INCLUDE_DIRS=${BLASLAPACK_INC} \
+  -D TPL_LAPACK_LIBRARIES='${BLASLAPACK_LIBRARIES}' \
   \
   -D BLAS_LIBRARY_DIRS:PATH='${BLASLAPACK_LIB}' \
   -D BLAS_LIBRARY_NAMES:STRING='${BLASLAPACK_LIBS}' \
@@ -129,16 +133,11 @@ CMAKEFLAGS = \
   -D BoostLib_LIBRARY_DIRS:PATH=$TACC_BOOST_LIB      \
   \
   -D TPL_ENABLE_MUMPS:BOOL=${HAS_MUMPS} \
-  -D MUMPS_INCLUDE_DIRS=${TACC_MUMPS_INC} \
-  -D MUMPS_LIBRARY_DIRS=${TACC_MUMPS_LIB} \
-  -D MUMPS_LIBRARY_NAMES:STRING=${MUMPSLIBNAMES} \
-  -D VLE_TPL_MUMPS_LIBRARIES:STRING=${MUMPSLIBS} \
-  -D TPL_ParMETIS_LIBRARIES='${PARMETISLIBS}' \
-  -D TPL_ParMETIS_INCLUDE_DIRS=${TACC_PARMETIS_INC} \
+  ${MUMPSFLAGS} \
+  ${PARMETISFLAGS} \
   \
   -D TPL_ENABLE_yaml-cpp:BOOL=${HAS_YAMLCPP} \
-  -D yaml-cpp_INCLUDE_DIRS:PATH=${TACC_YAMLCPP_INC} \
-  -D yaml-cpp_LIBRARY_DIRS:PATH=${TACC_YAMLCPP_LIB} \
+  ${YAMLFLAGS} \
   \
   -D Trilinos_ENABLE_Amesos:BOOL=${HAS_EPETRA} \
       -D Trilinos_ENABLE_Amesos2:BOOL=${HAS_KOKKOS} \
@@ -209,3 +208,10 @@ CMAKEFLAGS = \
       -D Trilinos_ENABLE_STKMesh:BOOL=${HAS_STK} \
   \
   -D SWIG_EXECUTABLE:FILEPATH=${TACC_SWIG_BIN}/swig
+
+return
+
+Not needed?
+  -D MPI_BASE_DIR=${TACC_IMPI_DIR}/intel64 \
+  -D MPI_INCLUDE_DIRS=${TACC_IMPI_INC} \
+  -D MPI_EXEC:FILEPATH='/opt/apps/xalt/0.6/bin/ibrun' \

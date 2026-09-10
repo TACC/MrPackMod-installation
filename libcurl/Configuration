@@ -6,6 +6,7 @@
 
 PACKAGE = libcurl
 ABOUT = A command line tool and library for transferring data with URL syntax.
+CATEGORY = utility, programming
 PACKAGEVERSION = 8.21.0
 PACKAGEVERSIONDOWNLOAD = 8_21_0
 # 8.22.0

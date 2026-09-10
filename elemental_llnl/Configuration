@@ -7,7 +7,8 @@
 ################################################################
 
 PACKAGE = elemental
-ABOUT  = Distributed-memory, arbitrary-precision, dense and sparse-direct linear algebra, conic optimization, and lattice reduction 
+ABOUT  = Distributed-memory, arbitrary-precision, dense and sparse-direct linear algebra, conic optimization, and lattice reduction
+CATEGORY = library, mathematics
 URL = https://github.com/LLNL/Elemental
 PACKAGEVERSION = 1.5.3
 DOWNLOADURL = https://github.com/llnl/Elemental/archive/refs/tags/v${PACKAGEVERSION}.tar.gz

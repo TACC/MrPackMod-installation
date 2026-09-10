@@ -5,7 +5,8 @@
 ################################################################
 
 PACKAGE = sz
-ABOUT = Error-bounded Lossy Data Compressor 
+ABOUT = Error-bounded Lossy Data Compressor
+CATEGORY = library, storage
 URL = https://github.com/szcompressor/SZ/
 PACKAGEVERSION = 2.1.12
 PACKAGEVERSIONDOWNLOAD = 2.1.12.5

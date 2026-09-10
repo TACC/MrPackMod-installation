@@ -6,6 +6,7 @@
 
 PACKAGE = gmsh
 ABOUT = Mesh Generator
+CATEGORY = application, meshing
 PACKAGEVERSION = 4.15.0
 URL = https://gmsh.info/
 CODEURL = https://gitlab.onelab.info/gmsh/gmsh

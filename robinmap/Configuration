@@ -5,7 +5,8 @@
 ################################################################
 
 PACKAGE = robinmap
-ABOUT = C++ implementation of a fast hash map and hash set using robin hood hashing 
+ABOUT = C++ implementation of a fast hash map and hash set using robin hood hashing
+CATEGORY = library, programming, C++
 PACKAGEVERSION = 1.4.1
 URL = https://github.com/Tessil/robin-map
 DOWNLOADURL = https://github.com/Tessil/robin-map/archive/refs/tags/v${PACKAGEVERSION}.tar.gz

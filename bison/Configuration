@@ -6,6 +6,7 @@
 
 PACKAGE = bison
 ABOUT = general-purpose parser generator
+CATEGORY = utility, programming
 URL = https://www.gnu.org/software/bison/ \
     https://ftp.gnu.org/gnu/bison/
 PACKAGEVERSION = 3.8

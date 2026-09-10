@@ -7,6 +7,7 @@
 
 PACKAGE = trilinos
 ABOUT = Collection of reusable scientific software libraries
+CATEGORY = library, mathematics
 URL = https://github.com/trilinos/Trilinos
 
 # https://github.com/trilinos/Trilinos/issues/14831
@@ -23,7 +24,7 @@ GITREPO = git@github.com:trilinos/Trilinos.git
 
 ##
 MODE = hybrid
-MODULES = boost swig phdf5 
+MODULES = swig phdf5 
 # blaslapack
 HAS_CUDA = OFF
 MODULE_MINIMUM_VERSION_intel = 20
@@ -38,9 +39,15 @@ CPPSTANDARD = 20
 #
 PYTHON = OFF
 HAS_EPETRA = ON
-HAS_BOOST = ON
 # exodus seems external to trilinos, so let's turn it off
 HAS_EXODUS = OFF
+
+HAS_BOOST = ON
+HAS_BOOST==ON MODULES += boost
+BOOSTFLAGS =
+HAS_BOOST==ON BOOSTFLAGS = \
+  -D Boost_LIBRARY_DIRS=${TACC_BOOST_LIB} \
+  -D Boost_INCLUDE_DIRS=${TACC_BOOST_INC}
 
 HAS_HDF5 = ON
 HAS_KOKKOS = ON
@@ -57,6 +64,7 @@ HAS_PARMETIS = ON
 PARMETISFLAGS = -D parmetis=off
 # make sure to single-quote this
 PARMETISLIBS = libparmetis.so;libmetis.so
+HAS_PARMETIS==ON MODULE += parmetis
 
 HAS_OPENMP = OFF
 
@@ -70,11 +78,8 @@ HAS_MUMPS  = OFF
 HAS_PANZER = ON
 HAS_STK    = ON
 HAS_TEKO   = ${HAS_ADAPTERS}
+
 HAS_YAMLCPP = OFF
-YAMLFLAGS = 
-# if [ "$${HAS_YAMLCPP}" = "1" ] ; then 
-# source $${scriptdir}/../yaml-cpp/yamlcpp_vars.sh
-# fi
 
 TRILINOS_BLAS_INC    = ${BLASLAPACK_INC}
 TRILINOS_LAPACK_INC  = ${BLASLAPACK_INC}
