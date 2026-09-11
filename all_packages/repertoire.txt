@@ -1,0 +1,27 @@
+# utilities
+zlib
+libaec
+libcurl
+cmake
+ninja
+meson
+pcre2
+swig
+
+# C++ libraries
+boost
+cxxopts
+fmtlib
+catch2
+eigen
+
+# I/O
+hdf5
+phdf5
+netcdf
+pnetcdf
+parallelnetcdf
+silo
+
+# Numerical libraries
+fftw3
