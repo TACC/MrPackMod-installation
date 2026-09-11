@@ -6,6 +6,7 @@
 
 PACKAGE = kokkos
 PACKAGEVERSION = 5.2.1
+# 5.2.3
 # also 4.7.04
 ABOUT = C++ Performance Portability Programming Ecosystem
 CATEGORY = library, programming
