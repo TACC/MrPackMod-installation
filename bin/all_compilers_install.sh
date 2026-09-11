@@ -1,45 +1,26 @@
 #!/bin/bash
 
-if [ $# -lt 1 -o "$1" = "-h" ] ; then 
-    echo "Usage: $0 [ -j 123 ] [ -c compiler ] [ -t target ] [ -v version ] package"
-    echo "    -t : make target or default_install"
-    echo "    -v : package version"
-    exit 1
-fi
-
-compilerselect=
-jcount=4
-modules=
-target=default_install
-version=
-while [ $# -gt 1 ] ; do
-    if [ "$1" = "-j" ] ; then 
+configuration=Configuration
+jcount=6
+while [ $# -gt 0 ] ; do
+    if [ "$1" = "-h" ] ; then 
+	echo "Usage: $0 [ -j 123 ] [ -c configuration ] [ -v : package version ]"
+	exit 0
+    elif [ "$1" = "-j" ] ; then 
 	shift && jcount=$1 && shift
     elif [ "$1" = "-c" ] ; then
-	shift && compilerselect="$1" && shift
-    elif [ "$1" = "-t" ] ; then
-	shift && target=$1 && shift
+	shift && configuration="$1" && shift
     elif [ "$1" = "-v" ] ; then
 	shift && version=$1 && shift
     fi
 done
 
 ##
-## go to package directory
+## What are we installing?
 ##
-package=$1
-cd ${HOME}/Software
-if [ ! -d "$package" ] ; then
-    echo "No such package: <<$package>>" && exit 1
-fi
-cd $package
-make clean
-
-##
-## deduce version to install
-##
-if [ -z "$version" ] ; then
-    version=$( make --no-print-directory version )
+package=$( mpm.py package )
+if [ -z "${version}" ] ; then
+    version="$( mpm.py version )"
 fi
 
 ##
@@ -67,7 +48,7 @@ for compiler in $compilers ; do
     ##
     ## read settings file for this compiler
     ##
-    settings=../env_${TACC_SYSTEM}_${compiler}.sh
+    settings=../env/${TACC_SYSTEM}_${compiler}.sh
     if [ ! -f ${settings} ] ; then
 	echo "----" && echo "No such settings file: $settings" && echo "----"
 	continue
@@ -79,16 +60,16 @@ for compiler in $compilers ; do
 	##
 	## load prerequisites
 	##
-	for m in $( make list_modules ) ; do
+	for m in $( mpm.py modules ) ; do
 	    echo "loading prereq module <<$m>>"
-	    module load $m
+	    module load $m 2>/dev/null
 	    if [ $? -gt 0 ] ; then echo "ERROR could not load $m"exit 1 ; fi
 	done
-	module list
+	module -t list 2>&1
 	##
 	## and go
 	##
-	make JCOUNT=${jcount} ${target} PACKAGEVERSION=${version}
+	PACKAGEVERSION=${version} mpm.py  -j ${jcount} -c ${configuration} install
     fi
 done 2>&1 | tee all_${package}.log
 
