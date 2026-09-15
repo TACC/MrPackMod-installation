@@ -1,0 +1,36 @@
+# utilities, not compiler-dependent
+cmake
+ninja
+gmp
+
+# support libraries
+pcre2
+swig
+zlib
+libaec
+libcurl
+mpfr
+
+# C++ libraries
+boost # fails with nvidia
+cxxopts
+fmtlib
+catch2
+eigen # needs boost, so fails with nvidia
+
+# I/O
+hdf5
+phdf5
+netcdf
+pnetcdf
+parallelnetcdf
+silo
+
+# Numerical libraries
+fftw3
+p4est
+suitesparse
+petsc
+hypre
+trilinos
+dealii
