@@ -23,6 +23,10 @@ if [ -z "${version}" ] ; then
     version="$( mpm.py version )"
 fi
 
+all_log=all_${package}.log
+rm -f ${all_log}
+touch ${all_log}
+
 ##
 ## find compilers to use
 ##
@@ -31,7 +35,8 @@ if [ ! -f "$compilersfile" ] ; then
     echo "Could not find compilersfile: $compilersfile" && exit 1
 fi
 compilers="$( cat $compilersfile )"
-echo "Going to install <<$package>> for compilers: <<$compilers>>"
+echo "Going to install <<$package>> for compilers: <<$compilers>>" \
+     | tee -a ${all_log}
 
 ##
 ## do install for all compilers
@@ -71,7 +76,7 @@ for compiler in $compilers ; do
 	##
 	PACKAGEVERSION=${version} mpm.py  -j ${jcount} -c ${configuration} install
     fi
-done 2>&1 | tee all_${package}.log
+done 2>&1 | tee -a ${all_log}
 
 ##
 ## report available installation
