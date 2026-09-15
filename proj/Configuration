@@ -10,6 +10,7 @@ ABOUT = Cartographic Projections and Coordinate Transformations Library
 CATEGORY = application, geography
 URL = https://github.com/OSGeo/PROJ
 PACKAGEVERSION = 9.8.1
+# 9.9.0
 DOWNLOADURL = https://github.com/OSGeo/PROJ/archive/refs/tags/${PACKAGEVERSION}.tar.gz
 GITREPO = https://github.com/OSGeo/PROJ.git
 
