@@ -9,6 +9,7 @@
 
 PACKAGE = adios2
 ABOUT = The Adaptable Input/Output System version 2
+CATEGORY = library, I/O
 URL = https://github.com/ornladios/ADIOS2
 PACKAGEVERSION = 2.12.1
 DOWNLOADURL = https://github.com/ornladios/ADIOS2/archive/refs/tags/v${PACKAGEVERSION}.tar.gz

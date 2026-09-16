@@ -9,14 +9,14 @@ SKIPPACKAGE = 1
 ABOUT = 
 URL = https://www.faccts.de/orca/
 PACKAGEVERSION = 6.1.1
-
-## junk from here on down
+DOWNLOADURL = https://github.com/orca/orca/archive/refs/tags/${PACKAGEVERSION}.tar.gz
+GITREPO = git@github.com:orca/orca.git
 
 MODE = seq
+
+BUILDSYSTEM = cmake
 BASICMODULES = python swig 
 MODULES = ${BASICMODULES} cuda
-
-include ${MAKEINCLUDES}/Make.info
 
 ##
 ## cmake 
@@ -30,25 +30,10 @@ CMAKEFLAGS = -Wno-dev \
 HASBIN = 1
 EXTRAINSTALLTARGET = PythonInstall
 
-include ${MAKEINCLUDES}/Make.cmake
-info ::
-	@echo "make config-help"
-config-help :
-	@cd ${PACKAGEROOT}/${PACKAGE}/${PACKAGE}-${PACKAGEVERSION} \
-	 && open docs-source//usersguide/library/02_compiling.rst
-include ${MAKEINCLUDES}/Make.cbuild
-info ::
-	@echo "make default_install : gpu version"
-.PHONY: default_install gpu
+return
+
 default_install gpu :
 	@export CUDAFLAGS="${CUDAFLAGS}" \
 	 && export NVCC_APPEND_FLAGS="${CUDAFLAGS}" \
 	 && make --no-print-directory configure build JCOUNT=${JCOUNT}
 
-DOWNLOADURL = https://github.com/orca/orca/archive/refs/tags/${PACKAGEVERSION}.tar.gz
-include ${MAKEINCLUDES}/Make.download
-
-GITREPO = git@github.com:orca/orca.git
-include ${MAKEINCLUDES}/Make.git
-
-include ${MAKEINCLUDES}/Make.clean

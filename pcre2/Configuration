@@ -8,6 +8,7 @@
 
 PACKAGE = pcre2
 ABOUT = Perl-compatible Regular Expressions
+CATEGORY = library, programming
 URL = https://github.com/PCRE2Project/pcre2
 PACKAGEVERSION = 10.48
 MODE = seq

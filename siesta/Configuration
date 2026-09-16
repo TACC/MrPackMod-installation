@@ -13,12 +13,14 @@
 
 PACKAGE = siesta
 ABOUT = A first-principles materials simulation code using DFT
+CATEGORY = application, physics
 URL         = https://siesta-project.org/siesta/index.html
 SOFTWAREURL = https://gitlab.com/siesta-project/siesta
 DOCURL      = https://docs.siesta-project.org/projects/siesta/en/stable/
 ## see below if this ever reaches 5.4
 PACKAGEVERSION = 5.4.2
 DOWNLOADURL = https://gitlab.com/siesta-project/siesta/-/releases/${PACKAGEVERSION}/downloads/siesta-${PACKAGEVERSION}.tar.gz
+## 5.4.2 does not compile but as of Sep 2026 the dev version does
 GITREPO = https://gitlab.com/siesta-project/siesta.git
 SUBMODULE = 1
 MODE = mpi
@@ -45,13 +47,16 @@ CMAKEFLAGS =  \
     \
     -D BLAS_LIBRARY_DIR=${BLASLAPACK_LIB} \
     -D LAPACK_LIBRARY_DIR=${BLASLAPACK_LIB} \
-    -D SCALAPACK_LIBRARY_DIR=${BLASLAPACK_LIB} \
-    -D SCALAPACK_LIBRARY='${SCALAPACK_LIBS}' \
     \
     -D SIESTA_WITH_DFTD3=ON \
     -D SIESTA_WITH_ELPA=OFF \
     -D SIESTA_WITH_FFTW=ON -D FFTW_ROOT=${TACC_FFTW3_DIR} \
     -D SIESTA_WITH_LIBXC=ON
+NO_SCALAPACK = \
+    -D SCALAPACK_LIBRARY_DIR=${BLASLAPACK_LIB} \
+    -D SCALAPACK_LIBRARY='${SCALAPACK_LIBS}' \
+    -D done=off
+
 #     -D SCALAPACK_LIBRARY=${TACC_SCALAPACK_LIB}/libscalapack.so 
 # -lmkl_scalapack_lp64 -lmkl_blacs_intelmpi_lp64 -lmkl_gf_lp64 -lmkl_sequential -lmkl_core -lpthread -lm -ldl' 
 
@@ -60,7 +65,10 @@ COMPILER==gcc CMAKEFLAGS += -DLAPACK_LIBRARY='${BLASLAPACK_LIBS}'
 HASBIN = 1
 CPTOINSTALLDIR = Examples Tests
 
+################################################################
 exit user settings
+################################################################
+
 -DSIESTA_WITH_FFTW=ON \
   -DSIESTA_WITH_LIBXC=ON \
   -DSIESTA_WITH_NETCDF=ON \

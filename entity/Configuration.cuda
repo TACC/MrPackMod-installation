@@ -2,10 +2,14 @@
 ####
 #### Makefile for Entity installation
 ####
+#### nvcc error   : '"$CICC_PATH/cicc"' died due to signal 11 (Invalid memory reference)
+#### nvcc error   : '"$CICC_PATH/cicc"' core dumped
+####
 ################################################################
 
 PACKAGE = entity
 ABOUT = New generation astrophysical plasma simulation code with CPU/GPU portability
+CATEGORY = application, physics
 URL = https://github.com/entity-toolkit/entity
 DOCURL = https://entity-toolkit.github.io/wiki/content/1-getting-started/1-compile-run/#configuring-compiling
 PACKAGEVERSION = 1.4.4
@@ -23,7 +27,7 @@ MODE==mpi HAVEMPI = ON
 MODE==seq HDF5 = ${TACC_HDF5_DIR}
 MODE==mpi HDF5 = ${TACC_PHDF5_DIR}
 
-MODE==mpi MODULES = adios2
+#MODE==mpi MODULES = adios2
 MODULES += cuda
 #MODULES += kokkos/*.*.*cuda 
 

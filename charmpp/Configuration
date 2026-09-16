@@ -6,6 +6,7 @@
 
 PACKAGE = charmpp
 ABOUT = Parallel programming framework
+CATEGORY = library, programming
 URL = https://charmplusplus.org/
 CODEURL = https://github.com/UIUC-PPL/charm
 PACKAGEVERSION = 8.0.1

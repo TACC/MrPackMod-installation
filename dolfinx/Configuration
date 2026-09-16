@@ -5,7 +5,8 @@
 ################################################################
 
 PACKAGE = dolfinx
-ABOUT = Next generation FEniCS problem solving environment 
+ABOUT = Next generation FEniCS problem solving environment
+CATEGORY = library, mathematics
 PACKAGEVERSION = 0.10.0.post5
 URL = https://github.com/FEniCS/dolfinx
 DOWNLOADURL = https://github.com/FEniCS/dolfinx/archive/refs/tags/v${PACKAGEVERSION}.tar.gz

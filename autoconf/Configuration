@@ -6,6 +6,7 @@
 
 PACKAGE = autoconf
 ABOUT = autotools configuration utility
+CATEGORY = utility, programming
 URL = https://ftp.gnu.org/gnu/autoconf/
 PACKAGEVERSION = 2.72
 DOWNLOADURL = https://ftp.gnu.org/gnu/autoconf/autoconf-${PACKAGEVERSION}.tar.gz

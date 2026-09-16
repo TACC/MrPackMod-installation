@@ -6,6 +6,7 @@
 
 PACKAGE = sqlite
 ABOUT = SQL database engine
+CATEGORY = application, programming, storage
 PACKAGEVERSION = 3.53.2
 URL = https://www.sqlite.org
 CODEURL = https://github.com/sqlite/sqlite

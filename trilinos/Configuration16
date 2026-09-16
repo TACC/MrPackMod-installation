@@ -6,6 +6,7 @@
 
 PACKAGE = trilinos
 ABOUT = Collection of reusable scientific software libraries
+CATEGORY = library, mathematics
 URL = https://github.com/trilinos/Trilinos
 
 # https://github.com/trilinos/Trilinos/issues/14831

@@ -6,8 +6,9 @@
 
 PACKAGE = suitesparse
 ABOUT = Suite of sparse matrix algorithms
+CATEGORY = library, mathematics
 PACKAGEVERSION = 7.12.3
-# 7.14.0
+# 7.14.1
 ## blas problems with 12.2
 # https://github.com/DrTimothyAldenDavis/SuiteSparse/issues/1049
 URL = https://github.com/DrTimothyAldenDavis/SuiteSparse
@@ -18,15 +19,19 @@ MODE = seq
 
 BUILDSYSTEM = cmake
 MODULES = gmp mpfr 
+HAS_CUDA = OFF
 
 # COMPILER==gcc export MKLROOT=${BLASLAPACK_ROOT}
 CMAKEFLAGS = --fresh \
   ${BLAS_VENDOR_FLAG} \
-  -D CMAKE_C_FLAGS='-I${BLASLAPACK_INC}'
+  -D SUITESPARSE_USE_CUDA=${HAS_CUDA} \
+  -D GRAPHBLAS_COMPACT=ON \
+  ${BLAS_VENDOR_FLAG}
 NOTFLAGS = \
   -D BLAS_INCLUDE_DIRS='${BLASLAPACK_INC}' \
   -D BLAS_LIBRARIES='${BLASLAPACK_THREAD_LIBS}' \
   -D LAPACK_LIBRARIES='${BLASLAPACK_THREAD_LIBS}' \
+  -D CMAKE_C_FLAGS='-I${BLASLAPACK_INC}' \
   \
   -D SUITESPARSE_USE_64BIT_BLAS=1 \
   -D LAPACK_INCLUDE_DIRS='${BLASLAPACK_INC}' \

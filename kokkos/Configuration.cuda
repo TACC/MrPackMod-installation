@@ -6,8 +6,10 @@
 
 PACKAGE = kokkos
 PACKAGEVERSION = 5.2.1
+# 5.2.3
 # also 4.7.04
 ABOUT = C++ Performance Portability Programming Ecosystem
+CATEGORY = library, programming
 URL = https://github.com/kokkos/kokkos
 DOWNLOADURL = https://github.com/kokkos/kokkos/archive/refs/tags/${PACKAGEVERSION}.tar.gz
 DOCURL = https://kokkos.github.io/kokkos-core-wiki/building.html

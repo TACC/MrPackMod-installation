@@ -6,6 +6,7 @@
 
 PACKAGE = boost
 ABOUT = C++ Libraries
+CATEGORY = library, programming
 
 # Starting 1.90 uses cmake!
 PACKAGEVERSION = 1.92.0

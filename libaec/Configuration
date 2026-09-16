@@ -6,7 +6,8 @@
 ################################################################
 
 PACKAGE = libaec
-ABOUT = Adaptive Entropy Coding library 
+ABOUT = Adaptive Entropy Coding library
+CATEGORY = library, storage
 PACKAGEVERSION = 1.1.6
 URL = https://github.com/Deutsches-Klimarechenzentrum/libaec
 DOWNLOADURL = https://github.com/Deutsches-Klimarechenzentrum/libaec/archive/refs/tags/v${PACKAGEVERSION}.tar.gz
