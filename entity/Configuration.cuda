@@ -2,6 +2,9 @@
 ####
 #### Makefile for Entity installation
 ####
+#### nvcc error   : '"$CICC_PATH/cicc"' died due to signal 11 (Invalid memory reference)
+#### nvcc error   : '"$CICC_PATH/cicc"' core dumped
+####
 ################################################################
 
 PACKAGE = entity
