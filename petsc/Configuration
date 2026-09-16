@@ -27,7 +27,7 @@ BUILDSYSTEM = petsc
 ##
 ## Start petsc flags with native blas
 ##
-PETSCFLAGS = --with-blaslapack=1 --with-blaslapack-dir=${BLASLAPACK_ROOT}
+PETSCFLAGS = --with-blaslapack=1 --with-blaslapack-dir=${BLASLAPACK_ROOT}/lib
 ARCH=
 
 ##
