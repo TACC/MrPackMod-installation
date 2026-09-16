@@ -23,7 +23,11 @@ BUILDSYSTEM = petsc
 # set configure flags
 # rm from downloaded git.scalapack/CMakeLists.txt
 # set_source_files_properties(TOOLS/SL_gridreshape.c PROPERTIES COMPILE_OPTIONS "-Wno-error=implicit-function-declaration")
-PETSCFLAGS =
+
+##
+## Start petsc flags with native blas
+##
+PETSCFLAGS = --with-blaslapack=1 --with-blaslapack-dir=${BLASLAPACK_ROOT}/lib
 ARCH=
 
 ##

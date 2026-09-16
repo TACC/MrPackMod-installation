@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function usage () {
-    echo "Usage: $1 [ -h ] [ -j 123 ]"
+    echo "Usage: $1 [ -h ] [ -j 123 ] [ -t : trace ]"
     echo "    [ -f : skip fortran ]"
     # echo "    [ --install big/small]"
 }
@@ -9,6 +9,7 @@ function usage () {
 ## export INSTALLATION=big
 fortran=ON
 jcount=6
+traceflag=
 while [ $# -gt 0 ] ; do
     if [ $1 = "-h" ] ; then
 	usage && exit
@@ -18,6 +19,8 @@ while [ $# -gt 0 ] ; do
 	fortran=OFF && shift
     elif [ "$1" = "-j" ] ; then
 	shift && jcount=$1 && shift
+    elif [ "$1" = "-t" ] ; then
+	traceflag="-t" && shift
     else
 	echo "Unknown option <<$1>>" && usage && exit 1
     fi
@@ -31,7 +34,7 @@ for i in 64 32 ; do
 	    export DEBUG=$d
 	    SCRIPTSDIR=${PWD}/mpm_scripts_$s$i$d \
 	    HAS_FORTRAN=${fortran} \
-		      mpm.py -j ${jcount} install
+		      mpm.py -j ${jcount} ${traceflag} install
 	done
     done
 done
