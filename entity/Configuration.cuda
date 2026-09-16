@@ -24,7 +24,7 @@ MODE==mpi HAVEMPI = ON
 MODE==seq HDF5 = ${TACC_HDF5_DIR}
 MODE==mpi HDF5 = ${TACC_PHDF5_DIR}
 
-MODE==mpi MODULES = adios2
+#MODE==mpi MODULES = adios2
 MODULES += cuda
 #MODULES += kokkos/*.*.*cuda 
 
