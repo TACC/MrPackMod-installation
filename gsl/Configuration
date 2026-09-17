@@ -1,0 +1,24 @@
+################################################################
+####
+#### Makefile for Gsl installation
+####
+################################################################
+
+PACKAGE = GSL
+ABOUT = GNU Scientific Library
+URL = http://www.gnu.org/software/gsl
+PACKAGEVERSION = 2.8
+DOWNLOADURL = https://ftp.gnu.org/gnu/gsl/gsl-${PACKAGEVERSION}.tar.gz
+MODE = seq
+
+BUILDSYSTEM = autotools
+
+MODULES = 
+
+CONFIGUREFLAGS = \
+    --with-pic \
+    --enable-shared \
+    --disable-dependency-tracking 
+
+PKGCONFIGLIB = pkgconfig
+HASBIN = 1
