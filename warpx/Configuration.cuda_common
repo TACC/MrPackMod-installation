@@ -54,7 +54,7 @@ SYSTEM==ls6 CMAKEFLAGS += \
   -D CMAKE_CXX_FLAGS='-mcmodel=medium -Wl,--no-relax' \
   -D CMAKE_CUDA_FLAGS='-mcmodel=medium -Wl,--no-relax'
 
-exit
+exit Cuda notes follow
 
 Vista:
     - H200: 9.0
