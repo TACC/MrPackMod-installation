@@ -1,5 +1,6 @@
 # https://github.com/DrTimothyAldenDavis/SuiteSparse/issues/1049
 BLAS_VENDOR_FLAG = -D BLA_VENDOR=Intel10_64lp_seq
+BLASLAPACK_ROOT = ${MKL_ROOT}
 
 BLASLAPACK = mkl
 BLASLAPACK_INC = ${TACC_MKL_INC}

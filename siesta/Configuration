@@ -17,10 +17,13 @@ CATEGORY = application, physics
 URL         = https://siesta-project.org/siesta/index.html
 SOFTWAREURL = https://gitlab.com/siesta-project/siesta
 DOCURL      = https://docs.siesta-project.org/projects/siesta/en/stable/
-## see below if this ever reaches 5.4
 PACKAGEVERSION = 5.4.2
 DOWNLOADURL = https://gitlab.com/siesta-project/siesta/-/releases/${PACKAGEVERSION}/downloads/siesta-${PACKAGEVERSION}.tar.gz
+
 ## 5.4.2 does not compile but as of Sep 2026 the dev version does
+## https://gitlab.com/siesta-project/siesta/-/work_items/612
+## https://gitlab.com/siesta-project/siesta/-/issues/615
+
 GITREPO = https://gitlab.com/siesta-project/siesta.git
 SUBMODULE = 1
 MODE = mpi
