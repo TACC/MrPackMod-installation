@@ -1,6 +1,6 @@
 ################################################################
 ####
-#### Makefile for NekRS installation
+#### MrPackMod configuration for NekRS installation
 #### gpu version
 ####
 ################################################################
@@ -14,7 +14,7 @@ include Configuration.basic
 
 # adios problem to be fixed in 26.1
 # https://github.com/Nek5000/nekRS/issues/704
-MODULES = adios2 cuda
+MODULES = cuda adios2 
 
 # see Configuration.gpu
 USECUDA = ON
