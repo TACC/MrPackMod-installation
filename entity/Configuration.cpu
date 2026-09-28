@@ -14,7 +14,8 @@ GITREPO = https://github.com/entity-toolkit/entity.git
 MODE = mpi
 
 BUILDSYSTEM = cmake
-MODULES = kokkos adios2 phdf5
+MODULES = phdf5
+# kokkos adios2 
 
 # see `pgens' directory for choices
 CMAKEFLAGS =  \

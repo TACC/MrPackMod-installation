@@ -1,8 +1,8 @@
 # https://github.com/DrTimothyAldenDavis/SuiteSparse/issues/1049
 BLAS_VENDOR_FLAG = -D BLA_VENDOR=Intel10_64lp_seq
-BLASLAPACK_ROOT = ${MKL_ROOT}
 
 BLASLAPACK = mkl
+BLASLAPACK_ROOT = ${TACC_MKL_DIR}
 BLASLAPACK_INC = ${TACC_MKL_INC}
 BLASLAPACK_LIB = ${TACC_MKL_LIB}
 # note the semicolons: be sure to single-quote this when using the macros

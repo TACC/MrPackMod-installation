@@ -9,7 +9,7 @@ ABOUT = Parallel solvers for sparse linear systems featuring multigrid methods.
 CATEGORY = library, mathematics
 URL = https://github.com/hypre-space/hypre
 DOCURL = https://hypre.readthedocs.io/en/latest/ch-misc.html#cmake-instructions
-PACKAGEVERSION = 3.1.0
+PACKAGEVERSION = 3.2.0
 
 MODE = mpi
 MODULES = 

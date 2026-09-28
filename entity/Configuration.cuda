@@ -2,6 +2,9 @@
 ####
 #### Makefile for Entity installation
 ####
+#### nvcc error   : '"$CICC_PATH/cicc"' died due to signal 11 (Invalid memory reference)
+#### nvcc error   : '"$CICC_PATH/cicc"' core dumped
+####
 ################################################################
 
 PACKAGE = entity
@@ -24,7 +27,7 @@ MODE==mpi HAVEMPI = ON
 MODE==seq HDF5 = ${TACC_HDF5_DIR}
 MODE==mpi HDF5 = ${TACC_PHDF5_DIR}
 
-MODE==mpi MODULES = adios2
+#MODE==mpi MODULES = adios2
 MODULES += cuda
 #MODULES += kokkos/*.*.*cuda 
 

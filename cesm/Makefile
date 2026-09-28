@@ -7,6 +7,7 @@
 PACKAGE = CESM2
 ABOUT = The Community Earth System Model
 PACKAGEVERSION = 2.1.3
+# 3.0 about to come out
 URL = https://github.com/ESCOMP/CESM/tree/release-cesm2.2.2
 MODE = mpi
 

@@ -17,22 +17,12 @@ BOOTSTRAP = sed -i -e /iomanip/a\"\#include <cstdint>\" thirdparty/yaml-cpp/yaml
 GITREPO = git@github.com:ornladios/ADIOS2.git
 
 MODE = mpi
+MODULES = 
 
 BUILDSYSTEM = cmake
 
-MODULES = phdf5
-## can use hdf5, kokkos, zlib
+HAS_CUDA = OFF
+HAS_HDF5 = ON
+HAS_FORTRAN = ON
 
-# https://adios2.readthedocs.io/en/latest/setting_up/setting_up.html#cmake-options
-# https://github.com/ornladios/ADIOS2/issues/4585
-USEFORTRAN = ON
-# --debug-find to see cmake in action
-FABRICFLAG = 
-SYSTEM!=horizon FABRICFLAG = -D CMAKE_EXE_LINKER_FLAGS=-lfabric
-CMAKEFLAGS =  \
-    -D ADIOS2_USE_Fortran=${USEFORTRAN} \
-    -D ADIOS2_USE_AWSSDK=OFF \
-    ${FABRICFLAG}
-HASBIN = 1
-
-DEPENDSONCURRENT = phdf5
+include Configuration.flags

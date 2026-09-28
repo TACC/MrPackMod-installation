@@ -1,0 +1,76 @@
+################################################################
+####
+#### Makefile for Metis as patched by scivision installation
+####
+#### https://github.com/scivision/METIS
+#### this the 5.1.0.3 version only
+#### there are big problems with the Karypis 5.2 version
+####
+####   --with-64-bit-indices option requires a metis build with IDXTYPEWIDTH=64
+#### however
+#### https://github.com/scivision/METIS/issues/7
+#### solved in 5.2.1.4
+#### https://github.com/scivision/METIS/commit/456244e99d7f0027706033d18bc1b3424d3507cc
+####
+#### https://github.com/scivision/METIS/issues/10
+#### https://github.com/scivision/METIS/issues/8
+####
+################################################################
+
+PACKAGE = metis
+ABOUT = CMake enhanced Karypis METIS library
+URL = https://github.com/scivision/METIS/
+CATEGORY = library,graph
+PACKAGEVERSION = 5.2.1.4
+# still problems with 5.2.1.2:
+## https://github.com/scivision/METIS/issues/8
+DOWNLOADURL = https://github.com/scivision/METIS/archive/refs/tags/v${PACKAGEVERSION}.tar.gz
+
+GITREPO = https://github.com/scivision/METIS.git
+GITDATE=20250821
+
+MODE = seq
+
+BUILDSYSTEM = cmake
+MODULES = 
+
+WIDTH=32
+# 1. posix source:
+#    https://github.com/KarypisLab/GKlib/issues/24
+# 2. testing off to prevent sqrt@@GLIBC error
+# 3. copy-dt-needed-entries because 
+#    build-5.2.1.1-clx-gcc13.2-impi21.9.0-i32/_deps/gklib-build/libGKlib.so
+#    see https://stackoverflow.com/a/55086637/2044454
+EXTRA_C_FLAGS = -D_POSIX_C_SOURCE=200809L -Wl,--copy-dt-needed-entries
+COMPILER==nvidia EXTRA_C_FLAGS = -D_POSIX_C_SOURCE=200809L
+
+CMAKEFLAGS = \
+    -D UNIX=ON \
+    -D BUILD_TESTING=OFF \
+    -D IDXTYPEWIDTH=${WIDTH} -D REALTYPEWIDTH=${WIDTH} \
+    -D CMAKE_C_FLAGS='${EXTRA_C_FLAGS}'
+
+INSTALLVARIANT=i32 
+WIDTH==64 INSTALLVARIANT=i64
+WIDTH==64 MODULEVERSIONEXTRA=i64
+
+# stupid post-processing is solved in the 5.2.1.2 release:
+# https://github.com/scivision/METIS/issues/7
+
+## i64-fix :
+## 	/bin/true \
+## 	 && sed -i $${builddir}/src/include/metis.h \
+## 	    -e '/define/s/WIDTH 32/WIDTH 64/'
+
+# BOOTSTRAP = sed -i \
+#     -e '/GIT_TAG/s/6897bfe/078042614ff5192ab4c9bde0575bfef0d4572687/' \
+#     -e '/GIT_TAG/s/44630ca/078042614ff5192ab4c9bde0575bfef0d4572687/' \
+#     CMakeLists.txt
+
+return
+
+ifdef TICKETS
+intel24 compilation S3
+/opt/apps/gcc/13.2.0/bin/ld: CMakeFiles/gpmetis.dir/gpmetis.c.o: undefined reference to symbol 'gk_GetCurMemoryUsed'
+/opt/apps/gcc/13.2.0/bin/ld: /work2/00434/eijkhout/metis/build-5.2.1.1-stampede3-intel24.2-impi21.13-i32/_deps/gklib-build/libGKlib.so: error adding symbols: DSO missing from command line
+
