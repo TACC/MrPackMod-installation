@@ -1,0 +1,18 @@
+################################################################
+####
+#### MrPackMod configuration for svMultiPhysics
+####
+################################################################
+
+PACKAGE = svmultiphysics
+URL = https://github.com/SimVascular/svMultiPhysics
+ABOUT = svMultiPhysics is an open-source, parallel, finite element multi-physics solver
+CATEGORY = application, physics
+DOCURL = https://simvascular.github.io/documentation/multi_physics.html
+
+PACKAGEVERSION = March_2025
+DOWNLOADURL = https://github.com/SimVascular/svMultiPhysics/archive/refs/tags/${PACKAGEVERSION}.tar.gz
+
+MODE = mpi
+# https://github.com/SimVascular/svMultiPhysics/issues/655
+BUILDSYSTEM = cmake
