@@ -7,16 +7,24 @@
 PACKAGE = highfive
 ABOUT = Header-only C++ HDF5 interface
 CATEGORY = library, storage, C++
-PACKAGEVERSION = 3.2.0
+
 URL = https://github.com/highfive-devs/highfive
 DOCURL = https://highfive-devs.github.io/highfive/
 ## migration:
 ## https://highfive-devs.github.io/highfive/md__2home_2runner_2work_2highfive_2highfive_2doc_2migration__guide.html
 
+PACKAGEVERSION = 3.2.0
+DOWNLOADURL = https://github.com/highfive-devs/highfive/archive/refs/tags/v${PACKAGEVERSION}.tar.gz
+GITREPO = https://github.com/highfive-devs/highfive.git
+SUBMODULE = 1
+
+MODE = mpi
+
+BUILDSYSTEM = cmake
+
 #
 # par configuration
 #
-MODE = mpi
 MODULES = 
 HDF5PARALLEL = ON
 MODULENAME = phighfive
@@ -30,6 +38,3 @@ NOLIB = 1
 ## DEPENDSONCURRENT = phdf5
 ## DEPENDSON = boost eigen
 
-DOWNLOADURL = https://github.com/highfive-devs/highfive/archive/refs/tags/v${PACKAGEVERSION}.tar.gz
-GITREPO = https://github.com/highfive-devs/highfive.git
-SUBMODULE = 1
