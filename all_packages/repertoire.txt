@@ -25,6 +25,8 @@ netcdf
 pnetcdf
 parallelnetcdf
 silo
+highfive
+phighfive
 
 # Numerical libraries
 fftw3
