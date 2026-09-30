@@ -25,7 +25,7 @@ BUILDSYSTEM = cmake
 #
 # par configuration
 #
-MODULES = 
+MODULES = phdf5
 HDF5PARALLEL = ON
 MODULENAME = phighfive
 MODULENAMEALT = highfive

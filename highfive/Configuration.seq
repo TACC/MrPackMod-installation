@@ -20,11 +20,11 @@ SUBMODULE = 1
 MODE = seq
 
 BUILDSYSTEM = cmake
+MODULES = hdf5
 
 #
 # seq configuration
 #
-MODULES = 
 HDF5PARALLEL = OFF
 
 CMAKEFLAGS = \

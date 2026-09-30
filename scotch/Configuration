@@ -14,7 +14,7 @@ CATEGORY = library, graphing
 URL = https://www.labri.fr/perso/pelegrin/scotch/ \
     https://gitlab.inria.fr/scotch/scotch
 PACKAGEVERSION = 7.0.12
-# 7.0.14
+# 7.0.16
 DOWNLOADURL = https://gitlab.inria.fr/scotch/scotch/-/archive/v${PACKAGEVERSION}/scotch-v${PACKAGEVERSION}.tar.gz
 GITREPO = https://gitlab.inria.fr/scotch/scotch.git
 
