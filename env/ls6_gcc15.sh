@@ -30,11 +30,12 @@ echo -e "\nThere is no mpi for gcc15, wait for gcc16!\n"
 # module load impi
 # module load mkl
 
-# ##
-# ## Python
-# ##
+##
+## Python
+##
 
-#  module load python/3.12
+module load python/3.12
+
 # # export TACC_PYTHON_DIR=/opt/apps/gcc11_2/python3/3.9.7
 # # export TACC_PYTHON3_DIR=${TACC_PYTHON_DIR}
 # # export PATH=${TACC_PYTHON_DIR}/bin:${PATH}
