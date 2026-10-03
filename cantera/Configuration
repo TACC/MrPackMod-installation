@@ -1,0 +1,108 @@
+################################################################
+####
+#### Configuration for CANTERA installation
+####
+#### user group:
+#### https://groups.google.com/g/cantera-users?pli=1
+####
+################################################################
+
+PACKAGE = cantera
+ABOUT = Chemical kinetics, thermodynamics, and transport tool suite
+URL = https://github.com/Cantera/cantera
+DOCURL = https://cantera.org/stable/develop/index.html#sec-compiling
+CATEGORY = library, chemistry
+PACKAGEVERSION = 3.2.0
+DOWNLOADURL = https://github.com/Cantera/cantera/releases/download/v${PACKAGEVERSION}/cantera-${PACKAGEVERSION}.tar.gz
+GITREPO = https://github.com/Cantera/cantera.git
+
+MODE = seq
+
+# CMake build seems not supoprted
+# https://github.com/Cantera/cantera/issues/1971
+BUILDSYSTEM = scons
+
+MODE = seq
+MODULES = boost eigen hdf5 highfive
+
+SCONSFLAGS = \
+    doxygen_docs=no \
+    system_highfive='y' \
+    boost_inc_dir=${TACC_BOOST_INC} \
+    blas_lapack_libs=mkl_rt blas_lapack_dir=${BLASLAPACK_ROOT}
+
+SCONS_EXTRA_INCS = ${TACC_HIGHFIVE_INC}
+SCONS_EXTRA_LIBS = ${TACC_HIGHFIVE_LIB}
+
+HAS_EIGEN = ON
+HAS_EIGEN==ON MODULES += eigen
+HAS_EIGEN==ON SCONS_EXTRA_INCS *= :${TACC_EIGEN_INC}
+HAS_EIGEN==ON SCONSFLAGS += system_eigen=y
+HAS_EIGEN==OFF SCONSFLAGS += system_eigen=n
+
+HAS_FMTLIB = ON
+# https://github.com/Cantera/enhancements/issues/261
+HAS_FMTLIB==ON MODULES += fmtlib
+HAS_FMTLIB==ON SCONS_EXTRA_INCS *= :${TACC_FMTLIB_INC}
+HAS_FMTLIB==ON SCONS_EXTRA_INCS *= :${TACC_FMTLIB_LIB}
+HAS_FMTLIB==ON SCONSFLAGS += system_fmt=y
+
+HAS_HDF5=ON
+HAS_HDF5==ON MODULES += hdf5
+HAS_HDF5==ON SCONSFLAGS += \
+    hdf_support='y' hdf_include=${TACC_HDF5_INC} hdf_libdir=${TACC_HDF5_LIB}
+
+HAS_PYTHON = ON
+HAS_PYTHON==ON SCONSFLAGS += python_package=y
+HAS_PYTHON==ON note Hard-coded python version number
+HAS_PYTHON==ON PYTHONPATHADD = lib/python3.12/site-packages
+HAS_PYTHON==OFF SCONSFLAGS += python_package=n
+
+HAS_SUNDIALS = OFF
+HAS_SUNDIALS==ON MODULES += ssundials
+HAS_SUNDIALS==ON SCONS_EXTRA_INCS *= :${TACC_SUNDIALS_INC}
+HAS_SUNDIALS==ON SCONS_EXTRA_INCS *= :${TACC_SUNDIALS_LIB}
+HAS_SUNDIALS==ON SCONSFLAGS += system_sundials='y'
+HAS_SUNDIALS==OFF SCONSFLAGS += system_sundials='n'
+
+HAS_YAMLCPP = OFF
+HAS_YAMLCPP==ON MODULES += yamlcpp
+HAS_YAMLCPP==ON SCONS_EXTRA_INCS *= :${TACC_YAMLCPP_INC}
+HAS_YAMLCPP==ON SCONS_EXTRA_INCS *= :${TACC_YAMLCPP_LIB}
+HAS_YAMLCPP==ON SCONSFLAGS += system_yamlcpp='y'
+HAS_YAMLCPP==OFF SCONSFLAGS += system_yamlcpp='n'
+
+SCONSFLAGS += \
+        extra_inc_dirs=${SCONS_EXTRA_INCS} \
+        extra_lib_dirs=${SCONS_EXTRA_LIBS}
+
+PKGCONFIGLIB = pkgconfiglib
+DEPENDSON = fmtlib hdf5 ssundials yamlcpp
+EXTRAINSTALLPATHS = PYTHONPATH=lib/python3.9/site-packages
+
+## scons build env_vars=all \
+##          CC=${TACC_CC} CXX=${TACC_CXX} FORTRAN=${TACC_FC} \
+##           prefix=$${prefixdir} \
+##           system_eigen='y' system_fmt='y' system_highfive='y' \
+##           system_sundials='y' system_yamlcpp='y' \
+##           extra_inc_dirs=${SCONS_EXTRA_INCS} \
+##           extra_lib_dirs=${SCONS_EXTRA_LIBS} \
+##           boost_inc_dir=${TACC_BOOST_INC} \
+##           \
+##           hdf_support='y' hdf_include=${TACC_HDF5_INC} hdf_libdir=${TACC_HDF5_LIB} \
+##           googletest='none' \
+##           blas_lapack_libs=mkl_rt blas_lapack_dir=${BLASLAPACK_ROOT}/lib/intel64
+
+## cd $${srcdir} \
+##  && scons install
+
+## # Blas / Lapack
+## ifeq "${TACC_SYSTEM}" "vista"
+##   BLASLIB=${TACC_NVPL_LIB}/libnvpl_blas_lp64_seq.so 
+##   LAPACKLIB=${TACC_NVPL_LIB}/libnvpl_lapack_lp64_seq.so
+## else
+##   # mkl_intel_lp64;mkl_sequential;mkl_core;iomp5;pthread"
+##   BLASLIB=${TACC_MKL_LIB}/libmkl_sequential.so ${TACC_MKL_LIB}/libmkl_core.so 
+##   LAPACKLIB=${TACC_MKL_LIB}/libmkl_intel_lp64.so ${TACC_MKL_LIB}/libmkl_sequential.so 
+## endif
+
