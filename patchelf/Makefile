@@ -7,6 +7,7 @@
 PACKAGE = PATCHELF
 ABOUT = A small utility to modify the dynamic linker and RPATH of ELF executables
 PACKAGEVERSION = 0.18.0
+# 0.19.2
 URL = https://github.com/NixOS/patchelf
 MODE = core
 
