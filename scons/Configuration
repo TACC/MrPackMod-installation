@@ -1,0 +1,24 @@
+################################################################
+####
+#### Configuration for SCONS installation
+####
+################################################################
+
+PACKAGE = scons
+ABOUT = Powerful Software Build System
+URL = https://scons.org/
+CODEURL= https://github.com/SCons/scons
+PACKAGEVERSION = 4.9.1
+DOWNLOADURL = https://github.com/SCons/scons/archive/refs/tags/${PACKAGEVERSION}.tar.gz
+
+MODE = core
+
+BUILDSYSTEM = pip
+
+## python3 -m pip install --target "$${prefixdir}" \
+## 	      scons
+
+NOLIB = 1
+NOINC = 1
+HASBIN = 1
+PYTHONPATHADDREL = SCons
