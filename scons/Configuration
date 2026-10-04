@@ -15,10 +15,7 @@ MODE = core
 
 BUILDSYSTEM = pip
 
-## python3 -m pip install --target "$${prefixdir}" \
-## 	      scons
-
 NOLIB = 1
 NOINC = 1
 HASBIN = 1
-PYTHONPATHADDREL = SCons
+PYTHONPATHADD = SCons
