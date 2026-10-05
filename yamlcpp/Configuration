@@ -13,5 +13,8 @@ DOWNLOADURL = https://github.com/jbeder/yaml-cpp/archive/refs/tags/yaml-cpp-${PA
 MODE = seq
 
 BUILDSYSTEM = cmake
+CMAKEFLAGS = \
+  -D YAML_BUILD_SHARED_LIBS=ON
+
 PKGCONFIGLIB = pkgconfig
 PREFIXPATHSET = 1
