@@ -13,6 +13,8 @@ URL = https://github.com/Cantera/cantera
 DOCURL = https://cantera.org/stable/develop/index.html#sec-compiling
 CATEGORY = library, chemistry
 PACKAGEVERSION = 3.2.0
+# https://github.com/Cantera/cantera/issues/2186
+PACKAGEVERSION!=git note Can only install from git
 DOWNLOADURL = https://github.com/Cantera/cantera/releases/download/v${PACKAGEVERSION}/cantera-${PACKAGEVERSION}.tar.gz
 GITREPO = https://github.com/Cantera/cantera.git
 
@@ -79,6 +81,8 @@ SCONSFLAGS += \
 PKGCONFIGLIB = pkgconfiglib
 DEPENDSON = fmtlib hdf5 ssundials yamlcpp
 EXTRAINSTALLPATHS = PYTHONPATH=lib/python3.9/site-packages
+
+return
 
 ## scons build env_vars=all \
 ##          CC=${TACC_CC} CXX=${TACC_CXX} FORTRAN=${TACC_FC} \
