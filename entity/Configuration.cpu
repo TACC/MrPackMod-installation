@@ -9,6 +9,7 @@ ABOUT = New generation astrophysical plasma simulation code with CPU/GPU portabi
 CATEGORY = application, astrophysics
 URL = https://github.com/entity-toolkit/entity
 PACKAGEVERSION = 1.4.5
+# 1.5.0
 DOWNLOADURL = https://github.com/entity-toolkit/entity/archive/refs/tags/v${PACKAGEVERSION}.tar.gz
 GITREPO = https://github.com/entity-toolkit/entity.git
 MODE = mpi
