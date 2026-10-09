@@ -38,6 +38,7 @@ SCONS_EXTRA_LIBS = ${TACC_HIGHFIVE_LIB}
 
 HAS_EIGEN = ON
 HAS_EIGEN==ON MODULES += eigen
+HAS_EIGEN==ON DEPENDSON += eigen
 HAS_EIGEN==ON SCONS_EXTRA_INCS *= :${TACC_EIGEN_INC}
 HAS_EIGEN==ON SCONSFLAGS += system_eigen=y
 HAS_EIGEN==OFF SCONSFLAGS += system_eigen=n
@@ -45,6 +46,7 @@ HAS_EIGEN==OFF SCONSFLAGS += system_eigen=n
 HAS_FMTLIB = ON
 # https://github.com/Cantera/enhancements/issues/261
 HAS_FMTLIB==ON MODULES += fmtlib
+HAS_FMTLIB==ON DEPENDSON += fmtlib
 HAS_FMTLIB==ON SCONS_EXTRA_INCS *= :${TACC_FMTLIB_INC}
 HAS_FMTLIB==ON SCONS_EXTRA_INCS *= :${TACC_FMTLIB_LIB}
 HAS_FMTLIB==ON SCONSFLAGS += system_fmt=y
@@ -79,8 +81,8 @@ SCONSFLAGS += \
         extra_lib_dirs=${SCONS_EXTRA_LIBS}
 
 PKGCONFIGLIB = pkgconfiglib
-DEPENDSON = fmtlib hdf5 ssundials yamlcpp
-EXTRAINSTALLPATHS = PYTHONPATH=lib/python3.9/site-packages
+DEPENDSON = fmtlib yamlcpp
+EXTRAINSTALLPATHS = PYTHONPATH=lib/python3.12/site-packages
 
 return
 
