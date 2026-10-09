@@ -13,6 +13,7 @@ CATEGORY = application, physics
 URL = https://github.com/entity-toolkit/entity
 DOCURL = https://entity-toolkit.github.io/wiki/content/1-getting-started/1-compile-run/#configuring-compiling
 PACKAGEVERSION = 1.4.4
+# 1.5.0
 DOWNLOADURL = https://github.com/entity-toolkit/entity/archive/refs/tags/v${PACKAGEVERSION}.tar.gz
 GITREPO = https://github.com/entity-toolkit/entity.git
 
