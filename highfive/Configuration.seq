@@ -29,6 +29,7 @@ HDF5PARALLEL = OFF
 
 CMAKEFLAGS = \
     -D HIGHFIVE_UNIT_TESTS=OFF 
+SYSTEM==ls6 CMAKEFLAGS += -D CMAKE_EXE_LINKER_FLAGS=-lpthread
 PREFIXPATHSET = 1
 # was the lib added at some point?
 # NOLIB = 1
