@@ -8,6 +8,7 @@ PACKAGE = cmake
 ABOUT = Powerful Software Build System
 CATEGORY = utility, programming
 PACKAGEVERSION = 4.4.3
+# 4.4.4
 # legacy 3.31.12
 URL = https://cmake.org/
 SOFTWAREURL = https://github.com/Kitware/CMake

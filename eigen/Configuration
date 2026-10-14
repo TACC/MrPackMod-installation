@@ -10,7 +10,7 @@
 PACKAGE = eigen
 ABOUT = C++ template library for linear algebra
 CATEGORY = library, mathematics
-PACKAGEVERSION = 5.0.0
+PACKAGEVERSION = 5.0.1
 URL = https://eigen.tuxfamily.org/index.php?title=Main_Page
 SOFTWAREURL = https://gitlab.com/libeigen/eigen/-/tree/master
 DOWNLOADURL = https://gitlab.com/libeigen/eigen/-/archive/${PACKAGEVERSION}/eigen-${PACKAGEVERSION}.tar.gz
@@ -28,8 +28,8 @@ CMAKEFLAGS = \
 # CMAKEFLAGS += \
 #   -D FFTW_LIBRARIES=${TACC_FFTW3_LIB}/libfftw3.so
 
-NOLIB = 1
 PKGCONFIG = share/pkgconfig
 PREFIXPATHSET = 1
 INCLUDELOC = include/eigen3
-
+PACKAGEVERSION==3.1.1 NOLIB = 1
+PACKAGEVERSION==3.1.1 note Eigen got a lib directory after version 3

@@ -10,11 +10,16 @@ CATEGORY = application, physics
 URL = https://gitlab.com/octopus-code/octopus
 DOCURL = https://www.octopus-code.org/documentation/15/manual/installation/cmake/
 PACKAGEVERSION = 16.4
+DOWNLOADURL = https://gitlab.com/octopus-code/octopus/-/archive/${PACKAGEVERSION}/octopus-${PACKAGEVERSION}.tar.gz
+
+GITREPO = https://gitlab.com/octopus-code/octopus.git
+SUBMODULE = 1
 GITTAG = 16.4
 
 MODE = mpi
 
 BUILDSYSTEM = cmake
+CMAKEUSENINJA = 1
 MODULES = gsl scalapack
 #    blaslapack 
 OCTOPUS_MPI = ON
@@ -35,6 +40,3 @@ CMAKEFLAGS = \
 HASBIN = 1
 DEPENDSON = gsl
 
-GITREPO = https://gitlab.com/octopus-code/octopus.git
-SUBMODULE = 1
-DOWNLOADURL = https://gitlab.com/octopus-code/octopus/-/archive/${PACKAGEVERSION}/octopus-${PACKAGEVERSION}.tar.gz

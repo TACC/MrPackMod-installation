@@ -6,16 +6,19 @@
 
 PACKAGE = json
 ABOUT = JSON for Modern C++
+URL = https://github.com/nlohmann/json
 CATEGORY = library, programming, C++
 PACKAGEVERSION = 3.12.0
+
 DOWNLOADURL = https://github.com/nlohmann/json/archive/refs/tags/v${PACKAGEVERSION}.tar.gz
-URL = https://github.com/nlohmann/json
+GITREPO = https://github.com/nlohmann/json.git
 MODE = seq
 
 BUILDSYSTEM = cmake
-CMAKEFLAGS = 
+CMAKEFLAGS =
+# nvidia bug should be fixed in the next release
 # https://github.com/nlohmann/json/discussions/4899
-COMPILER=nvidia CMAKEFLAGS += -D CMAKE_CXX_FLAGS='-D JSON_HAS_RANGES=0'
+PACKAGEVERSION!=git COMPILER==nvidia CMAKEFLAGS += '-DCMAKE_CXX_FLAGS=-DJSON_HAS_RANGES=0'
 PKGCONFIG = share/pkgconfig
 NOLIB = 1
 
