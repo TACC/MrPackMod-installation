@@ -1,4 +1,4 @@
-MODULES = eigen blaslapack
+MODULES = eigen 
 # arpack explicitly loads 3.3
 # eigen/5 needs c++14 support
 # which is not propagated from arpack

@@ -16,4 +16,5 @@ GITREPO = https://github.com/opencollab/arpack-ng.git
 MODE = seq
 ARPACKPARALLEL = OFF
 MODULENAME=arpack
+
 include Configuration.common
