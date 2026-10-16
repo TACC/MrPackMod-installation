@@ -85,6 +85,7 @@ SCONSFLAGS += \
 
 PKGCONFIGLIB = pkgconfiglib
 EXTRAINSTALLPATHS = PYTHONPATH=lib/python3.12/site-packages
+CPTOINSTALLDIR = data doc test_problems
 
 return
 

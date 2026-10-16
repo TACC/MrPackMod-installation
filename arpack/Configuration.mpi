@@ -14,7 +14,7 @@ DOWNLOADURL = https://github.com/opencollab/arpack-ng/archive/refs/tags/${PACKAG
 GITREPO = https://github.com/opencollab/arpack-ng.git
 
 MODE = mpi
-MODULENAME=parpack
+MODULENAME = parpack
 ARPACKPARALLEL = ON
-include Configuration.common
 
+include Configuration.common
