@@ -1,4 +1,5 @@
 ABOUT =  Hierarchical Data Format, version 5
+CATEGORY = library, storage
 URL = https://www.hdfgroup.org/
 CODEURL = https://github.com/HDFGroup/hdf5
 DOWNLOADURL = https://github.com/HDFGroup/hdf5/releases/download/${PACKAGEVERSION}/hdf5-${PACKAGEVERSION}.tar.gz

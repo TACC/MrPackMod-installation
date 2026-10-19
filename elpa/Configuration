@@ -8,6 +8,7 @@
 
 PACKAGE = elpa
 ABOUT = Library of exchange-correlation functionals for density-functional theory.
+CATEGORY = library, physics
 PACKAGEVERSION = 2026.02.002
 PACKAGEVERSION_DOWNLOAD = 2026_02_002
 URL = https://elpa.mpcdf.mpg.de/

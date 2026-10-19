@@ -5,7 +5,8 @@
 ################################################################
 
 PACKAGE = spdlog
-ABOUT = Fast C++ logging library. 
+ABOUT = Fast C++ logging library.
+CATEGORY = library, programming, C++
 PACKAGEVERSION = 1.17.0
 URL = https://github.com/gabime/spdlog
 DOWNLOADURL = https://github.com/gabime/spdlog/archive/refs/tags/v${PACKAGEVERSION}.tar.gz

@@ -1,0 +1,38 @@
+################################################################
+####
+#### Makefile for Openmm installation
+####
+#### internal compiler error:
+#### https://github.com/openmm/openmm/issues/4843
+####
+################################################################
+
+PACKAGE = openmmcuda
+ABOUT = toolkit for molecular simulation using high performance GPU code.
+CATEGORY = application, physics
+URL = https://github.com/openmm/openmm
+PACKAGEVERSION = 8.6.1
+DOWNLOADURL = https://github.com/openmm/openmm/archive/refs/tags/${PACKAGEVERSION}.tar.gz
+GITREPO = git@github.com:openmm/openmm.git
+
+MODE = seq
+
+BUILDSYSTEM = cmake
+MODULES = swig 
+HAS_CUDA==ON MODULES += cuda
+
+HAS_CUDA = YES
+HAS_PYTHON = OFF
+PYTHON_EXEC =
+HAS_PYTHON==ON PYTHON_EXEC = -D PYTHON_EXECUTABLE=${TACC_PYTHON_BIN}/python3
+CMAKEFLAGS = -Wno-dev \
+    -D OPENMM_BUILD_PYTHON_WRAPPERS=${HAS_PYTHON} \
+    ${PYTHON_EXEC} \
+    -D OPENMM_BUILD_C_AND_FORTRAN_WRAPPERS=ON
+HASBIN = 1
+EXTRAINSTALLTARGET = PythonInstall
+
+return cuda settings below
+
+CUDAFLAGS = -allow-unsupported-compiler -Xcompiler -std=gnu++14
+export NVCC_APPEND_FLAGS="${CUDAFLAGS}" 

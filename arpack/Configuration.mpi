@@ -7,13 +7,14 @@
 
 PACKAGE = arpack
 ABOUT = Collection of Fortran77 subroutines designed to solve large scale eigenvalue problems.
+CATEGORY = library, mathematics
 URL = https://github.com/opencollab/arpack-ng
 PACKAGEVERSION = 3.9.1
 DOWNLOADURL = https://github.com/opencollab/arpack-ng/archive/refs/tags/${PACKAGEVERSION}.tar.gz
 GITREPO = https://github.com/opencollab/arpack-ng.git
 
 MODE = mpi
-MODULENAME=parpack
+MODULENAME = parpack
 ARPACKPARALLEL = ON
-include Configuration.common
 
+include Configuration.common

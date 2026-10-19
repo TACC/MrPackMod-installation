@@ -8,6 +8,7 @@
 
 PACKAGE = netcdf
 ABOUT = Network Common Data Format
+CATEGORY = library, storage
 URL = https://netcdf.geodynamics.org/ 
 CODEURL = https://github.com/Unidata/netcdf-c 
 DOCURL = https://docs.unidata.ucar.edu/nug/current/getting_and_building_netcdf.html#configure_options

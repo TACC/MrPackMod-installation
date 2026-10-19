@@ -6,6 +6,7 @@
 
 PACKAGE = automake
 ABOUT = GNU automake
+CATEGORY = utility, programming
 URL = https://ftp.gnu.org/gnu/automake/
 PACKAGEVERSION = 1.18.1
 MODE = core

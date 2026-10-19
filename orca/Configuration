@@ -1,0 +1,39 @@
+################################################################
+####
+#### Makefile for Orca installation
+####
+################################################################
+
+PACKAGE = orca
+SKIPPACKAGE = 1
+ABOUT = 
+URL = https://www.faccts.de/orca/
+PACKAGEVERSION = 6.1.1
+DOWNLOADURL = https://github.com/orca/orca/archive/refs/tags/${PACKAGEVERSION}.tar.gz
+GITREPO = git@github.com:orca/orca.git
+
+MODE = seq
+
+BUILDSYSTEM = cmake
+BASICMODULES = python swig 
+MODULES = ${BASICMODULES} cuda
+
+##
+## cmake 
+##
+USEGPU = YES
+CUDAFLAGS = -allow-unsupported-compiler -Xcompiler -std=gnu++14
+CMAKEFLAGS = -Wno-dev \
+    -D PYTHON_EXECUTABLE=${TACC_PYTHON_BIN}/python3 \
+    -D ORCA_BUILD_PYTHON_WRAPPERS=ON \
+    -D ORCA_BUILD_C_AND_FORTRAN_WRAPPERS=ON
+HASBIN = 1
+EXTRAINSTALLTARGET = PythonInstall
+
+return
+
+default_install gpu :
+	@export CUDAFLAGS="${CUDAFLAGS}" \
+	 && export NVCC_APPEND_FLAGS="${CUDAFLAGS}" \
+	 && make --no-print-directory configure build JCOUNT=${JCOUNT}
+

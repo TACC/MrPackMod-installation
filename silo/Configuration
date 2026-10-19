@@ -6,6 +6,7 @@
 
 PACKAGE = silo
 ABOUT = File-based, scientific data exchange and software interoperability
+CATEGORY = library, storage
 URL = https://silo.llnl.gov/
 CODEURL = https://github.com/llnl/Silo
 PACKAGEVERSION = 4.12.1

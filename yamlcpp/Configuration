@@ -6,11 +6,15 @@
 
 PACKAGE = yamlcpp
 ABOUT = A YAML parser and emitter in C++ 
+CATEGORY = library, utility, programming
 PACKAGEVERSION = 0.9.0
 URL = https://github.com/jbeder/yaml-cpp
 DOWNLOADURL = https://github.com/jbeder/yaml-cpp/archive/refs/tags/yaml-cpp-${PACKAGEVERSION}.tar.gz
 MODE = seq
 
 BUILDSYSTEM = cmake
+CMAKEFLAGS = \
+  -D YAML_BUILD_SHARED_LIBS=ON
+
 PKGCONFIGLIB = pkgconfig
 PREFIXPATHSET = 1

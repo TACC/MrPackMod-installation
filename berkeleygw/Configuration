@@ -4,6 +4,8 @@
 
 PACKAGE = berkeleygw
 PACKAGEVERSION = 4.0
+ABOUT = many-body perturbation theory code for excited states
+CATEGORY = application, physics
 URL = https://berkeleygw.org/
 DOCURL = https://berkeleygw.org/documentation/
 DOWNLOADURL = https://app.box.com/shared/static/22edl07muvhfnd900tnctsjjftbtcqc4.gz

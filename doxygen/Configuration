@@ -6,6 +6,7 @@
 
 PACKAGE = doxygen
 ABOUT = Widely-used documentation generator tool in software development.
+CATEGORY = utility, programming
 PACKAGEVERSION = 1.17.0 
 PACKAGEVERSIONDOWNLOAD = 1_17_0
 # 1.18.0

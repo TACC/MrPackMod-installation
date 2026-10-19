@@ -6,6 +6,7 @@
 
 PACKAGE = cxxopts
 ABOUT = Lightweight C++ command line option parser
+CATEGORY = library, programming, C++
 PACKAGEVERSION = 3.3.1
 URL = https://github.com/jarro2783/cxxopts
 DOWNLOADURL = https://github.com/jarro2783/cxxopts/archive/refs/tags/v${PACKAGEVERSION}.tar.gz

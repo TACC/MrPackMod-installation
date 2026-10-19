@@ -6,6 +6,7 @@
 
 PACKAGE = nanobind
 ABOUT = Tiny and efficient C++/Python bindings
+CATEGORY = library, programming
 URL = https://github.com/wjakob/nanobind
 DOCURL = https://nanobind.readthedocs.io/en/latest/
 

@@ -10,6 +10,7 @@ URL = https://hpx.stellar-group.org/ \
     https://github.com/STEllAR-GROUP/hpx \
     https://hpx-docs.stellar-group.org/branches/master/html/index.html
 PACKAGEVERSION = 1.11.0
+# 2.0.0
 MODE = seq
 MODULES = boost
 

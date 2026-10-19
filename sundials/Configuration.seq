@@ -6,6 +6,7 @@
 
 PACKAGE = sundials
 ABOUT = SUite of Nonlinear and DIfferential/ALgebraic equation Solvers
+CATEGORY = library, mathematics
 MODULENOTES = Sequential version
 URL = https://computing.llnl.gov/projects/sundials
 SOFTWAREURL = https://github.com/LLNL/sundials

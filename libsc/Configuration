@@ -8,6 +8,7 @@
 
 PACKAGE = libsc
 ABOUT = The "sc" auxiliary library
+CATEGORY = library, mathematics
 URL = https://github.com/cburstedde/libsc
 PACKAGEVERSION = 2.8.7
 DOWNLOADURL = https://github.com/cburstedde/libsc/archive/refs/tags/v${PACKAGEVERSION}.tar.gz

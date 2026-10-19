@@ -6,3 +6,5 @@
 
 PACKAGES = all_packages
 ABOUT = dummy package for tree building
+CATEGORY = 
+

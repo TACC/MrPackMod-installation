@@ -1,0 +1,10 @@
+PACKAGE = vtk
+ABOUT = Visualization Toolkit
+URL = https://vtk.org/
+CATEGORY = application, visualization
+CODEURL = https://github.com/Kitware/VTK
+PACKAGEVERSION = 9.7.1
+DOWNLOADURL = https://github.com/Kitware/VTK/archive/refs/tags/v${PACKAGEVERSION}.tar.gz
+
+MODE = seq
+BUILDSYSTEM = cmake

@@ -6,6 +6,7 @@
 
 PACKAGE = scalapack
 ABOUT  = Scalable parallel lapack
+CATEGORY = library, mathematics
 URL = https://github.com/Reference-ScaLAPACK/scalapack
 PACKAGEVERSION = 2.2.3
 DOWNLOADURL = https://github.com/Reference-ScaLAPACK/scalapack/archive/refs/tags/v${PACKAGEVERSION}.tar.gz

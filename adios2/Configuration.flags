@@ -1,0 +1,25 @@
+################################################################
+####
+#### Flags for Adios2 installation
+####
+################################################################
+
+# https://adios2.readthedocs.io/en/latest/setting_up/setting_up.html#cmake-options
+# https://github.com/ornladios/ADIOS2/issues/4585
+
+HAS_CUDA==ON MODULES += cuda
+HAS_HDF5==ON MODULES += phdf5
+
+COMPILER==nvidia HAS_FORTRAN=OFF
+FABRICFLAG = 
+SYSTEM!=horizon FABRICFLAG = -D CMAKE_EXE_LINKER_FLAGS=-lfabric
+
+# --debug-find to see cmake in action
+CMAKEFLAGS =  \
+    -D ADIOS2_USE_Fortran=${HAS_FORTRAN} \
+    -D ADIOS2_USE_CUDA:BOOL=${HAS_CUDA} \
+    -D ADIOS2_USE_AWSSDK=OFF \
+    ${FABRICFLAG}
+
+HASBIN = 1
+DEPENDSONCURRENT = phdf5

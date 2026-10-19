@@ -6,6 +6,7 @@
 
 PACKAGE = gnuplot
 ABOUT = A portable, multi-platform, command-line driven graphing utility
+CATEGORY = utility, graphics
 URL = https://gnuplot.sourceforge.net 
 DOCURL = https://sourceforge.net/p/gnuplot/gnuplot-main/ci/master/tree/INSTALL
 PACKAGEVERSION = 6.0.4

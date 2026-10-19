@@ -7,6 +7,7 @@
 PACKAGE = gmp
 PACKAGEVERSION = 6.3.0
 ABOUT = GNU Multiple Precision Arithmetic Library
+CATEGORY = library, mathematics
 URL = https://gmplib.org/
 DOWNLOADURL = https://gmplib.org/download/gmp/gmp-${PACKAGEVERSION}.tar.xz
 MODE = core

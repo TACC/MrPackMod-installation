@@ -7,6 +7,7 @@
 PACKAGE = mpfr
 PACKAGEVERSION = 4.2.2
 ABOUT = Efficient arbitrary-precision floating-point library
+CATEGORY = library, mathematics, programming
 URL = https://www.mpfr.org/
 CODEURL = https://gitlab.inria.fr/mpfr/mpfr
 DOWNLOADURL = https://www.mpfr.org/mpfr-current/mpfr-${PACKAGEVERSION}.tar.gz

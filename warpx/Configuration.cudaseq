@@ -7,6 +7,7 @@
 PACKAGE = warpx
 PACKAGEVERSION = 26.07
 ABOUT = WarpX is an advanced Particle-In-Cell code
+CATEGORY = library, physics
 URL = https://github.com/BLAST-WarpX/warpx
 DOCURL = https://warpx.readthedocs.io/en/latest/index.html
 DOWNLOADURL = https://github.com/BLAST-WarpX/warpx/archive/refs/tags/${PACKAGEVERSION}.tar.gz

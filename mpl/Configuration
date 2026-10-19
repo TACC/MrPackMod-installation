@@ -6,6 +6,7 @@
 
 PACKAGE = mpl
 ABOUT = A C++17 message passing library based on MPI
+CATEGORY = library, programming
 PACKAGEVERSION = 0.4.0
 URL = https://github.com/rabauke/mpl
 DOWNLOADURL = https://github.com/rabauke/mpl/archive/refs/tags/v${PACKAGEVERSION}.tar.gz

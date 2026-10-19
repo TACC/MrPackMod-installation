@@ -7,7 +7,7 @@
 PACKAGE = msgsl
 ABOUT = Guidelines Support Library
 PACKAGEVERSION = 4.1.0
-# 5.0.0
+# 5.0.1
 URL = https://github.com/microsoft/GSL
 MODE = seq
 

@@ -9,6 +9,7 @@ PACKAGEVERSION = 9.2.1
 URL = https://portal.nersc.gov/project/sparse/superlu/
 CODEURL = https://github.com/xiaoyeli/superlu_dist
 ABOUT = Distributed memory, MPI based SuperLU
+CATEGORY = library, mathematics
 DOWNLOADURL = https://github.com/xiaoyeli/superlu_dist/archive/refs/tags/v${PACKAGEVERSION}.tar.gz
 MODE = mpi
 
