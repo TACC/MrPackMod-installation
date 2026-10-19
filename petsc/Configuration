@@ -6,11 +6,12 @@
 
 PACKAGE = petsc
 ABOUT = Portable, Extensible Toolkit for Scientific Computation
+CATEGORY = library,mathematics
 URL = https://petsc.org
 SOFTWAREURL = https://petsc.org/release/install/download/
 
-PACKAGEVERSION = 3.25
-PACKAGEVERSION_DOWNLOAD = 3.25.3
+PACKAGEVERSION = 3.26
+PACKAGEVERSION_DOWNLOAD = 3.26.0
 DOWNLOADURL = https://web.cels.anl.gov/projects/petsc/download/release-snapshots/petsc-${PACKAGEVERSION_DOWNLOAD}.tar.gz
 GITREPO = https://gitlab.com/petsc/petsc.git
 BRANCH = main
@@ -22,6 +23,7 @@ BUILDSYSTEM = petsc
 # set configure flags
 # rm from downloaded git.scalapack/CMakeLists.txt
 # set_source_files_properties(TOOLS/SL_gridreshape.c PROPERTIES COMPILE_OPTIONS "-Wno-error=implicit-function-declaration")
+
 PETSCFLAGS =
 ARCH=
 
@@ -67,6 +69,9 @@ INSTALLATION=big
 INSTALLATION==big   MODULENOTE = External packages:
 INSTALLATION==small MODULENOTE = No external packages.
 
+# a lot depends on this
+HAS_CUDA=OFF
+
 HAS_CHACO=ON
 INSTALLATION==small HAS_CHACO=OFF
 INTSIZE==64         HAS_CHACO=OFF
@@ -78,6 +83,7 @@ HAS_EIGEN==ON MODULENOTE += eigen
 
 HAS_FFTW=ON
 INSTALLATION==small HAS_FFTW=OFF
+HAS_CUDA==ON        HAS_FFTW=OFF
 HAS_FFTW==ON MODULENOTE += fftw
 
 HAS_HDF5=ON
@@ -86,6 +92,7 @@ HAS_HDF5==ON MODULENOTE += hdf5
 
 HAS_HYPRE=ON
 INSTALLATION==small HAS_HYPRE=OFF
+HAS_CUDA==ON        HAS_HYPRE=OFF
 HAS_HYPRE==ON MODULENOTE += hypre
 
 HAS_KOKKOS=ON
@@ -94,6 +101,10 @@ HAS_KOKKOS==ON MODULENOTE += kokkos
 
 # problem
 HAS_MPE=OFF
+
+HAS_CUDA==ON MODULES += cuda
+HAS_CUDA==ON MODULENOTE += cuda
+HAS_CUDA==ON ARCH *= cuda
 
 #
 # Mumps depends on Metis & Parmetis
@@ -113,6 +124,7 @@ HAS_PARMETIS==ON MODULENOTE += parmetis
 HAS_SCALAPACK=ON
 INSTALLATION==small HAS_SCALAPACK=OFF
 HAS_FORTRAN==OFF    HAS_SCALAPACK=OFF
+#? HAS_CUDA==ON      HAS_SCALAPACK=OFF
 HAS_SCALAPACK==ON MODULENOTE += scalapack
 
 # turn off mumps if any of metis/parmetis/scalapack is disabled
@@ -130,6 +142,7 @@ INSTALLATION==small HAS_PTSCOTCH=OFF
 HAS_PTSCOTCH==ON MODULENOTE += ptscotch
 
 HAS_CHACO==ON     PETSCFLAGS += --with-chaco=yes     --download-chaco=yes
+HAS_CUDA==ON      PETSCFLAGS += --with-cuda=yes --with-cuda-arch=80
 HAS_EIGEN==ON     PETSCFLAGS += --with-eigen=yes     --download-eigen=yes
 HAS_FFTW==ON      PETSCFLAGS += --with-fftw=yes      --download-fftw=yes
 HAS_HDF5==ON      PETSCFLAGS += --with-hdf5=yes      --download-hdf5=yes
