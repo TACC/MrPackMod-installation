@@ -9,28 +9,31 @@ ABOUT = Parallel AMR on Forests of Octrees
 CATEGORY = library, mathematics
 URL = http://p4est.org/
 CODEURL = https://github.com/cburstedde/p4est
-PACKAGEVERSION = 2.8.7
-
 MODE = mpi
-MODULES = 
+
+PACKAGEVERSION = 2.8.7
+DOWNLOADURL = https://github.com/cburstedde/p4est/releases/download/v${PACKAGEVERSION}/p4est-${PACKAGEVERSION}.tar.gz
+
+GITREPO = https://github.com/cburstedde/p4est.git
+BRANCH = master
+SUBMODULE = yes
+PULLAFTERACTIONS = ./bootstrap
 
 BUILDSYSTEM = cmake
+
+MODULES = 
+
 CMAKEFLAGS = \
     -D SC_ENABLE_MPI=ON \
     -D P4EST_ENABLE_MPI=ON \
     -D P4EST_BUILD_EXAMPLES=OFF
 
 ##
-## there is boht a lib & lib64 dir
+## there is both a lib & lib64 dir
 ##
 # https://github.com/cburstedde/p4est/issues/351
 # https://github.com/cburstedde/p4est/issues/359
-PKGCONFIG = lib/pkgconfig
+CPLIBtoLIB64 = 1
+PKGCONFIGLIB = 1
 PREFIXPATHSET = 1
-
-DOWNLOADURL = https://github.com/cburstedde/p4est/releases/download/v${PACKAGEVERSION}/p4est-${PACKAGEVERSION}.tar.gz
-GITREPO = https://github.com/cburstedde/p4est.git
-BRANCH = master
-SUBMODULE = yes
-PULLAFTERACTIONS = ./bootstrap
 
