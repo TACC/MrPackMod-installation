@@ -26,7 +26,7 @@ module load impi/21.18
 ## Python
 ##
 
-module load python/3.12
+module -t load python/3.12
 
 # # get up to date c++ library, which is eff'ed up in the python module
 # ## export LD_LIBRARY_PATH=/scratch/tacc/apps/gcc/13.2.0/lib64:${LD_LIBRARY_PATH}
