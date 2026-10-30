@@ -34,4 +34,4 @@ module -t load python/3.12
 # export TACC_INTEL_LIB=/scratch/projects/compilers/intel24.1/oneapi/2024.1/lib
 # export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${TACC_INTEL_LIB}
 
-modulelist >/dev/null 2>&1 || module -t list
+modulelist 2>/dev/null || module -t list
