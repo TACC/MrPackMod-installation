@@ -26,7 +26,7 @@ module load impi/21.18
 ## Python
 ##
 
-module -t load python/3.12
+module -t load python/3.12 
 
 # # get up to date c++ library, which is eff'ed up in the python module
 # ## export LD_LIBRARY_PATH=/scratch/tacc/apps/gcc/13.2.0/lib64:${LD_LIBRARY_PATH}
@@ -34,4 +34,4 @@ module -t load python/3.12
 # export TACC_INTEL_LIB=/scratch/projects/compilers/intel24.1/oneapi/2024.1/lib
 # export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${TACC_INTEL_LIB}
 
-module -t list
+modulelist >/dev/null 2>&1 || module -t list
