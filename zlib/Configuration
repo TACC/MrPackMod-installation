@@ -9,6 +9,7 @@ ABOUT = A massively spiffy yet delicately unobtrusive compression library.
 CATEGORY = library, utility, compression
 URL = https://github.com/madler/zlib
 PACKAGEVERSION = 1.3.2
+# 1.4
 DOWNLOADURL = https://github.com/madler/zlib/releases/download/v${PACKAGEVERSION}/zlib-${PACKAGEVERSION}.tar.gz
 
 MODE = seq

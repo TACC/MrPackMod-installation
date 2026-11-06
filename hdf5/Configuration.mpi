@@ -15,6 +15,6 @@ MODE = mpi
 MODULENAME = phdf5
 MODULENAMEALT = hdf5
 
-HDFFORTRAN = ON
+HAS_FORTRAN = ON
 HAS_SZIP = ON
 include Configuration.common
