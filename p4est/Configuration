@@ -33,7 +33,7 @@ CMAKEFLAGS = \
 ##
 # https://github.com/cburstedde/p4est/issues/351
 # https://github.com/cburstedde/p4est/issues/359
-CPLIBtoLIB64 = 1
+# CPLIBtoLIB64 = 1
 PKGCONFIGLIB = 1
 PREFIXPATHSET = 1
 

@@ -21,6 +21,7 @@ clean :: localclean
 	            ; else \
 	                make --no-print-directory clean \
 	            ; fi \
+	         && rm -rf mpmscripts* \
 	         ) \
 	  ; fi \
 	done
