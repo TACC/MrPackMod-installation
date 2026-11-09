@@ -10,8 +10,8 @@ CATEGORY = library, mathematics
 URL = https://petsc.org
 SOFTWAREURL = https://petsc.org/release/install/download/
 
-PACKAGEVERSION = 3.25
-PACKAGEVERSION_DOWNLOAD = 3.25.5
+PACKAGEVERSION = 3.26
+PACKAGEVERSION_DOWNLOAD = 3.26.0
 DOWNLOADURL = https://web.cels.anl.gov/projects/petsc/download/release-snapshots/petsc-${PACKAGEVERSION_DOWNLOAD}.tar.gz
 GITREPO = https://gitlab.com/petsc/petsc.git
 BRANCH = main
@@ -44,22 +44,33 @@ PRECISION = double
 PETSCFLAGS += --with-precision=${PRECISION}
 PRECISION==single ARCH *= single
 
-# fortran 
+##
+## Fortran
+##
 FORTRAN = 90
 HAS_FORTRAN = ON
+
+COMPILER==gcc    note Turning off Fortran for gcc
 COMPILER==gcc    HAS_FORTRAN=OFF
+
+COMPILER==nvidia note Turning off Fortran for nvidia
 COMPILER==nvidia HAS_FORTRAN=OFF
+
 HAS_FORTRAN==ON FORTRAN==08 ARCH += f08
 HAS_FORTRAN==ON FORTRAN==08 PETSCFLAGS += --with-fortran-bindings=1 --with-mpi-f90module-visibility=0
 HAS_FORTRAN==ON FORTRAN==90 PETSCFLAGS += --with-fortran-bindings=1 --with-mpi-f90module-visibility=1
 HAS_FORTRAN==OFF            PETSCFLAGS += --with-fortran-bindings=0 --with-fc=0
 
-# int length
+##
+## Int length
+##
 INTSIZE = 32
 INTSIZE==64 PETSCFLAGS += --with-64-bit-indices=1
 INTSIZE==64 ARCH *= i64
 
-# debug
+##
+## Debug
+##
 DEBUG=OFF
 DEBUG==OFF PETSCFLAGS += --with-debug=no
 DEBUG==ON  PETSCFLAGS += --with-debug=yes
@@ -125,10 +136,10 @@ HAS_METIS==OFF     HAS_MUMPS=OFF
 HAS_PARMETIS==OFF  HAS_MUMPS=OFF
 HAS_SCALAPACK==OFF HAS_MUMPS=OFF
 # if mumps is still on, turn on metis/parmetis/scalapack
-HAS_MUMPS==ON HAS_SCALAPACK=ON
-HAS_MUMPS==ON HAS_PARMETIS=ON
-HAS_MUMPS==ON HAS_METIS=ON
-HAS_MUMPS==ON MODULENOTE += mumps
+## HAS_MUMPS==ON HAS_SCALAPACK=ON
+## HAS_MUMPS==ON HAS_PARMETIS=ON
+## HAS_MUMPS==ON HAS_METIS=ON
+## HAS_MUMPS==ON MODULENOTE += mumps
 
 HAS_PTSCOTCH=ON
 INSTALLATION==small HAS_PTSCOTCH=OFF
