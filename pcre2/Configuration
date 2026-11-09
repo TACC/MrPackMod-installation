@@ -12,12 +12,12 @@ CATEGORY = library, programming
 URL = https://github.com/PCRE2Project/pcre2
 PACKAGEVERSION = 10.48
 # 10.49
+DOWNLOADURL = https://github.com/PCRE2Project/pcre2/archive/refs/tags/pcre2-${PACKAGEVERSION}.tar.gz
+GITREPO = https://github.com/PhilipHazel/pcre2.git
 MODE = seq
 
 BUILDSYSTEM = cmake
 PKGCONFIGLIB = pkgconfig
 PREFIXPATHSET=1
 
-DOWNLOADURL = https://github.com/PCRE2Project/pcre2/archive/refs/tags/pcre2-${PACKAGEVERSION}.tar.gz
-GITREPO = https://github.com/PhilipHazel/pcre2.git
 
