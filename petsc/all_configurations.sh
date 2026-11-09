@@ -26,15 +26,17 @@ while [ $# -gt 0 ] ; do
     fi
 done
 
+totallog=total.log
 for i in 64 32 ; do
     export INTSIZE=$i
     for s in real complex ; do
 	export SCALAR=$s
 	for d in OFF ON ; do
 	    export DEBUG=$d
+	    echo -e "\nInstall with int=$i, scalar=$s, debug=$d\n"
 	    SCRIPTSDIR=${PWD}/mpm_scripts_$s$i$d \
 	    HAS_FORTRAN=${fortran} \
 		      mpm.py -j ${jcount} ${traceflag} install
 	done
     done
-done
+done 2>&1 | tee ${totallog}
