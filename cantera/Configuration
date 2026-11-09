@@ -25,7 +25,7 @@ MODE = seq
 BUILDSYSTEM = scons
 
 MODE = seq
-MODULES = boost eigen hdf5 highfive
+MODULES = boost hdf5 highfive
 
 SCONSFLAGS = \
     doxygen_docs=no \

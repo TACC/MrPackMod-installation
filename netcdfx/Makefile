@@ -8,6 +8,7 @@
 PACKAGE = NETCDFX
 URL = https://github.com/Unidata/netcdf-cxx4
 PACKAGEVERSION = 4.3.1
+# 4.3.2
 MODE = seq
 MODULES =
 # hdf5 netcdf

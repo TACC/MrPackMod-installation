@@ -18,7 +18,7 @@ COMPILER==gcc MODULES += mkl
 COMPILER==gcc abort Can not be compiled with gcc
 
 BUILDSYSTEM = make
-PREMAKE = ls -l *.mk && cp arch_${TACC_FAMILY_COMPILER}.mk ${SRCDIR}/arch.mk && cp flavor_real.mk ${SRCDIR}/flavor.mk && ls -l ${SRCDIR}/*.mk
+PREMAKE = ls -l *.mk && cp arch_${COMPILER}.mk ${SRCDIR}/arch.mk && cp flavor_real.mk ${SRCDIR}/flavor.mk && ls -l ${SRCDIR}/*.mk
 COMPILER==nvidia PREMAKE += && find ${SRCDIR} -type f -exec sed -i -e 's/fftw3.h/nvpl_fftw3.h/' {} \;
 
 MAKETARGETS = all-flavors
