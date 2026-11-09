@@ -9,7 +9,7 @@ module -t list 2>&1 \
 ##
 ## My modules
 ##
-NV_VERSION=26.1
+NV_VERSION=26.9
 module unload nvidia openmpi cuda 2>/dev/null
 export MODULEPATH=${WORK}/modulefiles/Core\
 :${WORK}/modulefiles/Compiler/nvidia/${NV_VERSION}\
@@ -27,7 +27,7 @@ module -t list 2>&1 \
 #
 echo -n "\nPossible cuda:"
 module -t avail cuda
-cudaversion=13.1
+cudaversion=13.3
 module -t load cuda/${cudaversion}
 MODULEPATH=\
 ${WORK}/modulefiles/Compiler/nvidia/${NV_VERSION}\
@@ -38,15 +38,18 @@ module -t load openmpi/${OMPI_VERSION}
 
 echo "Load nvpl/math"
 module -t load nvpl nvidia_math
-# #module load nvhpc-hpcx
-# module -t list 2>&1 \
-#     | awk '{v=v " " $1} END { print "Modules: " v }'
 
-# ##
-# ## python hack
-# ##
-# export TACC_PYTHON_DIR=/opt/apps/gcc14/cuda12/python3/3.11.8
-# export TACC_PYTHON_BIN=/opt/apps/gcc14/cuda12/python3/3.11.8/bin
-# export PATH=${PATH}:${TACC_PYTHON_BIN}
-# export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${TACC_PYTHON_DIR}/lib
+# #module load nvhpc-hpcx
+
+#
+# listing
+#
+which modulelist >/dev/null 2>&1
+if [ $? -eq 0 ] ; then
+    modulelist
+else
+    module -t list 2>&1 \
+	| awk '{v=v " " $1} END { print "Modules: " v }'
+fi
+
 echo -e "Done setting up nvidia 26 environment\n"
