@@ -10,12 +10,13 @@ CATEGORY = library, programming, C++
 URL = https://github.com/catchorg/Catch2
 PACKAGEVERSION = 3.16.0
 # 3.16.1
-MODE = seq
-MODULES = 
-
-BUILDSYSTEM = cmake
-PKGCONFIG = share/pkgconfig
-PREFIXPATHSET = 1
-
 DOWNLOADURL = https://github.com/catchorg/Catch2/archive/refs/tags/v${PACKAGEVERSION}.tar.gz
 GITREPO = https://github.com/catchorg/Catch2.git
+
+MODE = seq
+
+BUILDSYSTEM = cmake
+MODULES = 
+
+PKGCONFIG = share/pkgconfig
+PREFIXPATHSET = 1
