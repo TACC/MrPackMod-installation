@@ -8,6 +8,7 @@ PACKAGE = MDSPAN
 ABOUT = Reference implementation of mdspan targeting C++23
 URL = https://github.com/kokkos/mdspan
 PACKAGEVERSION = git
+# 5.3.0
 MODE = seq
 
 include ${MAKEINCLUDES}/Make.info
