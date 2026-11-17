@@ -10,6 +10,7 @@ CATEGORY = library, storage
 URL = https://silo.llnl.gov/
 CODEURL = https://github.com/llnl/Silo
 PACKAGEVERSION = 4.12.1
+# 4.12.2
 DOWNLOADURL = https://github.com/LLNL/Silo/archive/refs/tags/${PACKAGEVERSION}.tar.gz
 GITREPO = https://github.com/LLNL/Silo.git
 
